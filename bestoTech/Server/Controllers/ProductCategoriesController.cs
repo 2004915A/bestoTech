@@ -14,11 +14,17 @@ namespace bestoTech.Server.Controllers
     [ApiController]
     public class ProductCategoriesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //Refactored
+        //private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductCategoriesController(ApplicationDbContext context)
+        //Refactored
+        //public ProductCategoriesController(ApplicationDbContext context)
+        public ProductCategoriesController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            //Refactored
+            //_context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/ProductCategories
