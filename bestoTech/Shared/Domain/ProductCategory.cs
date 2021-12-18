@@ -8,6 +8,6 @@ namespace bestoTech.Shared.Domain
 {
     public class ProductCategory : BaseDomainModel
     {
-        public string Name { get; set; }
+        public string ProductCategory { get; set; }
     }
 }
