@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bestoTech.Server.Data;
 
 namespace bestoTech.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211218164121_AddedDefaultDataAndUser")]
+    partial class AddedDefaultDataAndUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,14 +154,14 @@ namespace bestoTech.Server.Data.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "1f7961e6-0b6d-4094-8918-8a72de235668",
+                            ConcurrencyStamp = "fc507363-991b-4138-ab79-e55c20565c69",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "2c67c85d-7c2d-466b-9b84-89b269e8425e",
+                            ConcurrencyStamp = "e1b29be3-4558-4f20-b6fb-e407d17ee596",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -355,7 +357,7 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4a1aed59-e68a-4dfd-a13a-2d6c9550f97d",
+                            ConcurrencyStamp = "3a01fb8e-285f-4f3f-b8bc-ae3f86db9c47",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -363,9 +365,9 @@ namespace bestoTech.Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH3pe5BYxYzwRwuQrMPRTGut7CYD+K+zEoL4zf8J6pB4cwco8sozYWLZyHyrwfCpqQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAwRZLGJ4iJbCcaMApnxG6lUzzRb1HFIECh1QmHyp2gWPhakLR59Lk+BJ7c6fDN1pw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "86219817-0edf-4745-b746-c62fb6c45b55",
+                            SecurityStamp = "fb46ed86-2054-4b9c-bc91-5338d045f220",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -402,8 +404,8 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(469),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(475),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3571),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3578),
                             Name = "Amazon",
                             UpdatedBy = "System"
                         },
@@ -411,8 +413,8 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(478),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(479),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3581),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3582),
                             Name = "Shopee",
                             UpdatedBy = "System"
                         },
@@ -420,8 +422,8 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(481),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(482),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3584),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(3585),
                             Name = "Lazada",
                             UpdatedBy = "System"
                         });
@@ -472,8 +474,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 1,
                             AStoreId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 872, DateTimeKind.Local).AddTicks(8887),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8094),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 384, DateTimeKind.Local).AddTicks(1570),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 384, DateTimeKind.Local).AddTicks(9619),
                             Link = "https://www.amazon.sg/",
                             Price = 0,
                             ProductId = 1,
@@ -484,8 +486,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 2,
                             AStoreId = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8959),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8963),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 385, DateTimeKind.Local).AddTicks(489),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 385, DateTimeKind.Local).AddTicks(494),
                             Link = "https://shopee.sg/",
                             Price = 0,
                             ProductId = 2,
@@ -496,8 +498,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 3,
                             AStoreId = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8966),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8967),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 385, DateTimeKind.Local).AddTicks(497),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 385, DateTimeKind.Local).AddTicks(498),
                             Link = "https://www.lazada.sg/",
                             Price = 0,
                             ProductId = 3,
@@ -552,8 +554,8 @@ namespace bestoTech.Server.Data.Migrations
                             AvgRating = 0,
                             CategoryId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4502),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4508),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7435),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7441),
                             Name = "Apple",
                             NumOfProduct = 3,
                             ProductId = 0,
@@ -565,8 +567,8 @@ namespace bestoTech.Server.Data.Migrations
                             AvgRating = 0,
                             CategoryId = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4512),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4513),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7445),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7446),
                             Name = "Samsung",
                             NumOfProduct = 2,
                             ProductId = 0,
@@ -578,8 +580,8 @@ namespace bestoTech.Server.Data.Migrations
                             AvgRating = 0,
                             CategoryId = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4514),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4515),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7448),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 386, DateTimeKind.Local).AddTicks(7449),
                             Name = "Sony",
                             NumOfProduct = 1,
                             ProductId = 0,
@@ -611,15 +613,15 @@ namespace bestoTech.Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7322),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7327),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(545),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(551),
                             Name = "Phones",
                             UpdatedBy = "System"
                         },
@@ -627,8 +629,8 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7330),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7331),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(554),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(555),
                             Name = "Audio and Visual",
                             UpdatedBy = "System"
                         },
@@ -636,8 +638,8 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7332),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7333),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(556),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(557),
                             Name = "Cameras",
                             UpdatedBy = "System"
                         });
@@ -699,8 +701,8 @@ namespace bestoTech.Server.Data.Migrations
                             BrandId = 1,
                             CategoryId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2022),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2027),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5184),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5191),
                             Description = "Apple iPhone 13",
                             Name = "iPhone 13",
                             ProductId = 0,
@@ -714,8 +716,8 @@ namespace bestoTech.Server.Data.Migrations
                             BrandId = 1,
                             CategoryId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2031),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2032),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5195),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5196),
                             Description = "Apple iPhone 12",
                             Name = "iPhone 12",
                             ProductId = 0,
@@ -729,8 +731,8 @@ namespace bestoTech.Server.Data.Migrations
                             BrandId = 1,
                             CategoryId = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2034),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2035),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5197),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(5198),
                             Description = "Apple iPhone 11",
                             Name = "iPhone 11",
                             ProductId = 0,
@@ -799,8 +801,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 1,
                             BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6533),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6539),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9782),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9788),
                             ProductId = 1,
                             RecieptId = 1,
                             ReviewDescription = " ",
@@ -816,8 +818,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 2,
                             BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6543),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6544),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9793),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9794),
                             ProductId = 2,
                             RecieptId = 2,
                             ReviewDescription = " ",
@@ -833,8 +835,8 @@ namespace bestoTech.Server.Data.Migrations
                             Id = 3,
                             BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546),
+                            DateCreated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9796),
+                            DateUpdated = new DateTime(2021, 12, 19, 0, 41, 21, 387, DateTimeKind.Local).AddTicks(9797),
                             ProductId = 3,
                             RecieptId = 3,
                             ReviewDescription = " ",
@@ -866,7 +868,19 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserRole")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -983,7 +997,7 @@ namespace bestoTech.Server.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("bestoTech.Shared.Domain.User", "User")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -996,11 +1010,6 @@ namespace bestoTech.Server.Data.Migrations
             modelBuilder.Entity("bestoTech.Shared.Domain.Brand", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }
