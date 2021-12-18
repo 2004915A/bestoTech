@@ -37,6 +37,7 @@ namespace bestoTech.Server.Configurations.Entities
                      BrandName = "Apple",
                      NumOfProduct = 2,
                      CategoryId = 2,
+                     CatergoryName = " ",
                      ProductName = "",
                      AvgRating = 0,
 
@@ -52,6 +53,7 @@ namespace bestoTech.Server.Configurations.Entities
                      BrandName = "Samsung",
                      NumOfProduct = 3,
                      CategoryId = 3,
+                     CategoryName = " ",
                      ProductName = "",
                      AvgRating = 0,
         
