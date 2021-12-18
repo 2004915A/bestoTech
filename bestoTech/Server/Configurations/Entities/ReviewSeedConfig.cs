@@ -16,6 +16,7 @@ namespace bestoTech.Server.Configurations.Entities
                 new Review
                 {
                     Id = 1,
+                    ProductId = 1,
                     ReviewTitle = "Title1",
                     ReviewDescription = " ",
                     ReviewRating = 1,
@@ -30,6 +31,7 @@ namespace bestoTech.Server.Configurations.Entities
                  new Review
                  {
                      Id = 2,
+                     ProductId = 2,
                      ReviewTitle = "Title2",
                      ReviewDescription = " ",
                      ReviewRating = 2,
@@ -44,6 +46,7 @@ namespace bestoTech.Server.Configurations.Entities
                  new Review
                  {
                      Id = 3,
+                     ProductId = 3,
                      ReviewTitle = "Title3",
                      ReviewDescription = " ",
                      ReviewRating = 3,
