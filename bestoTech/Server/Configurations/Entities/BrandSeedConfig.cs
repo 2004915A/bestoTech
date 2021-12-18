@@ -22,7 +22,6 @@ namespace bestoTech.Server.Configurations.Entities
                     CategoryName = "",
                     AvgRating = 0,
 
-
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
                     CreatedBy = "System",
@@ -51,7 +50,6 @@ namespace bestoTech.Server.Configurations.Entities
                      CategoryName = " ",
                      AvgRating = 0,
         
-
                      DateCreated = DateTime.Now,
                      DateUpdated = DateTime.Now,
                      CreatedBy = "System",

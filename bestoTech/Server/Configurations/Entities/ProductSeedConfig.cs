@@ -50,7 +50,7 @@ namespace bestoTech.Server.Configurations.Entities
                  new Product
                  {
                      Id = 3,
-                     BrandId = ,
+                     BrandId = 3,
                      BrandName = "",
                      CategoryId = 1,
                      CategoryName = "",
