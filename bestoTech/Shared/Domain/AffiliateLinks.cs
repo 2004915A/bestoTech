@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class Brand : BaseDomainModel
+    public class AffiliateLinks : BaseDomainModel
     {
-        public string BrandName { get; set; }
-        public virtual Product Product { get; set; }
+        public string Link { get; set; }
+        public string Price { get; set; }
     }
 }
