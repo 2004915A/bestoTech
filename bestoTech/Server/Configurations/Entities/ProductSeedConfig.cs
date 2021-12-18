@@ -18,7 +18,7 @@ namespace bestoTech.Server.Configurations.Entities
                  {
                      Id = 1,
                      BrandId = 1,
-                     BrandName = "",
+                     BrandName = "", 
                      CategoryId = 3,
                      CategoryName = "",
                      ProductName = "Alpha 7 IV full-frame hybrid camera",
