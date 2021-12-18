@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bestoTech.Server.Data;
 
-namespace bestoTech.Server.Data.Migrations
+namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211218165330_AddedDefaultDataAndUser1")]
-    partial class AddedDefaultDataAndUser1
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,14 +152,14 @@ namespace bestoTech.Server.Data.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "1f7961e6-0b6d-4094-8918-8a72de235668",
+                            ConcurrencyStamp = "1bf460ee-9754-41c4-a42b-17c8f315fb15",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "2c67c85d-7c2d-466b-9b84-89b269e8425e",
+                            ConcurrencyStamp = "06a26edb-816b-47e5-9592-422ebad22af0",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +355,7 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4a1aed59-e68a-4dfd-a13a-2d6c9550f97d",
+                            ConcurrencyStamp = "4b812eaf-6c22-40e3-ac5b-7ab9cef3f3d8",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +363,9 @@ namespace bestoTech.Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH3pe5BYxYzwRwuQrMPRTGut7CYD+K+zEoL4zf8J6pB4cwco8sozYWLZyHyrwfCpqQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK72EHBEQHz0cTuek6msj/engDef8ehkxK2H1bNKk9eGPHTBZTb5grAqSBP/8+lk6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "86219817-0edf-4745-b746-c62fb6c45b55",
+                            SecurityStamp = "8d285f1f-b2d8-41b0-8acf-bb36dabebf4a",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -380,19 +378,7 @@ namespace bestoTech.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -403,29 +389,17 @@ namespace bestoTech.Server.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(469),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(475),
-                            Name = "Amazon",
-                            UpdatedBy = "System"
+                            Name = "Amazon"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(478),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(479),
-                            Name = "Shopee",
-                            UpdatedBy = "System"
+                            Name = "Shopee"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(481),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(482),
-                            Name = "Lazada",
-                            UpdatedBy = "System"
+                            Name = "Lazada"
                         });
                 });
 
@@ -436,17 +410,8 @@ namespace bestoTech.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AStoreId")
+                    b.Property<int?>("AStoreId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
@@ -454,11 +419,8 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -472,38 +434,20 @@ namespace bestoTech.Server.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AStoreId = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 872, DateTimeKind.Local).AddTicks(8887),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8094),
                             Link = "https://www.amazon.sg/",
-                            Price = 0,
-                            ProductId = 1,
-                            UpdatedBy = "System"
+                            Price = 0
                         },
                         new
                         {
                             Id = 2,
-                            AStoreId = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8959),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8963),
                             Link = "https://shopee.sg/",
-                            Price = 0,
-                            ProductId = 2,
-                            UpdatedBy = "System"
+                            Price = 0
                         },
                         new
                         {
                             Id = 3,
-                            AStoreId = 3,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8966),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8967),
                             Link = "https://www.lazada.sg/",
-                            Price = 0,
-                            ProductId = 3,
-                            UpdatedBy = "System"
+                            Price = 0
                         });
                 });
 
@@ -517,29 +461,14 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<int>("AvgRating")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumOfProduct")
                         .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -552,40 +481,22 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 1,
                             AvgRating = 0,
-                            CategoryId = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4502),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4508),
                             Name = "Apple",
-                            NumOfProduct = 3,
-                            ProductId = 0,
-                            UpdatedBy = "System"
+                            NumOfProduct = 3
                         },
                         new
                         {
                             Id = 2,
                             AvgRating = 0,
-                            CategoryId = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4512),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4513),
                             Name = "Samsung",
-                            NumOfProduct = 2,
-                            ProductId = 0,
-                            UpdatedBy = "System"
+                            NumOfProduct = 2
                         },
                         new
                         {
                             Id = 3,
                             AvgRating = 0,
-                            CategoryId = 3,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4514),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4515),
                             Name = "Sony",
-                            NumOfProduct = 1,
-                            ProductId = 0,
-                            UpdatedBy = "System"
+                            NumOfProduct = 1
                         });
                 });
 
@@ -596,52 +507,28 @@ namespace bestoTech.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorys");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7322),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7327),
-                            Name = "Phones",
-                            UpdatedBy = "System"
+                            Name = "Phones"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7330),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7331),
-                            Name = "Audio and Visual",
-                            UpdatedBy = "System"
+                            Name = "Audio and Visual"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7332),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7333),
-                            Name = "Cameras",
-                            UpdatedBy = "System"
+                            Name = "Cameras"
                         });
                 });
 
@@ -655,20 +542,11 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<float>("AvgRating")
                         .HasColumnType("real");
 
-                    b.Property<int>("BrandId")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -676,14 +554,8 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TotalReviews")
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -698,47 +570,48 @@ namespace bestoTech.Server.Data.Migrations
                         {
                             Id = 1,
                             AvgRating = 0f,
-                            BrandId = 1,
-                            CategoryId = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2022),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2027),
                             Description = "Apple iPhone 13",
                             Name = "iPhone 13",
-                            ProductId = 0,
-                            TotalReviews = 0,
-                            UpdatedBy = "System"
+                            TotalReviews = 0
                         },
                         new
                         {
                             Id = 2,
                             AvgRating = 0f,
-                            BrandId = 1,
-                            CategoryId = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2031),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2032),
                             Description = "Apple iPhone 12",
                             Name = "iPhone 12",
-                            ProductId = 0,
-                            TotalReviews = 0,
-                            UpdatedBy = "System"
+                            TotalReviews = 0
                         },
                         new
                         {
                             Id = 3,
                             AvgRating = 0f,
-                            BrandId = 1,
-                            CategoryId = 1,
-                            CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2034),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2035),
                             Description = "Apple iPhone 11",
                             Name = "iPhone 11",
-                            ProductId = 0,
-                            TotalReviews = 0,
-                            UpdatedBy = "System"
+                            TotalReviews = 0
                         });
+                });
+
+            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>
@@ -748,7 +621,7 @@ namespace bestoTech.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BrandId")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -760,34 +633,33 @@ namespace bestoTech.Server.Data.Migrations
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductId")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.Property<int>("RecieptId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ReviewDescription")
+                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReviewRating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReviewStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReviewTitle")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
 
                     b.HasIndex("ProductId");
 
@@ -799,53 +671,41 @@ namespace bestoTech.Server.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6533),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6539),
-                            ProductId = 1,
+                            DateCreated = new DateTime(2021, 12, 19, 1, 51, 26, 89, DateTimeKind.Local).AddTicks(3478),
+                            DateUpdated = new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(1458),
+                            Description = " ",
+                            Rating = 1,
                             RecieptId = 1,
-                            ReviewDescription = " ",
-                            ReviewId = 0,
-                            ReviewRating = 1,
-                            ReviewStatus = "Yes",
-                            ReviewTitle = "Title1",
-                            UpdatedBy = "System",
-                            UserId = 0
+                            Status = "Yes",
+                            Title = "Title1",
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6543),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6544),
-                            ProductId = 2,
+                            DateCreated = new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2327),
+                            DateUpdated = new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2333),
+                            Description = " ",
+                            Rating = 2,
                             RecieptId = 2,
-                            ReviewDescription = " ",
-                            ReviewId = 0,
-                            ReviewRating = 2,
-                            ReviewStatus = "Yes",
-                            ReviewTitle = "Title2",
-                            UpdatedBy = "System",
-                            UserId = 0
+                            Status = "Yes",
+                            Title = "Title2",
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            BrandId = 0,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546),
-                            DateUpdated = new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546),
-                            ProductId = 3,
+                            DateCreated = new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2336),
+                            DateUpdated = new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2336),
+                            Description = " ",
+                            Rating = 3,
                             RecieptId = 3,
-                            ReviewDescription = " ",
-                            ReviewId = 0,
-                            ReviewRating = 3,
-                            ReviewStatus = "Yes",
-                            ReviewTitle = "Title3",
-                            UpdatedBy = "System",
-                            UserId = 0
+                            Status = "Yes",
+                            Title = "Title3",
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -856,24 +716,12 @@ namespace bestoTech.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("EmailAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User1");
+                    b.ToTable("Users1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -931,15 +779,11 @@ namespace bestoTech.Server.Data.Migrations
                 {
                     b.HasOne("bestoTech.Shared.Domain.AStore", "AStore")
                         .WithMany()
-                        .HasForeignKey("AStoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AStoreId");
 
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("AStore");
 
@@ -950,9 +794,7 @@ namespace bestoTech.Server.Data.Migrations
                 {
                     b.HasOne("bestoTech.Shared.Domain.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
@@ -961,34 +803,47 @@ namespace bestoTech.Server.Data.Migrations
                 {
                     b.HasOne("bestoTech.Shared.Domain.Brand", "Brand")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandId");
 
                     b.HasOne("bestoTech.Shared.Domain.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Brand");
 
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
+                {
+                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("bestoTech.Shared.Domain.Product", "Product")
+                        .WithMany("ProductCategory")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>
                 {
+                    b.HasOne("bestoTech.Shared.Domain.Brand", "Brand")
+                        .WithMany()
+                        .HasForeignKey("BrandId");
+
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("bestoTech.Shared.Domain.User", "User")
                         .WithMany("Reviews")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Brand");
 
                     b.Navigation("Product");
 
@@ -998,6 +853,11 @@ namespace bestoTech.Server.Data.Migrations
             modelBuilder.Entity("bestoTech.Shared.Domain.Brand", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("bestoTech.Shared.Domain.Product", b =>
+                {
+                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>
