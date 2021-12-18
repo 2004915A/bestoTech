@@ -16,7 +16,7 @@ namespace bestoTech.Server.Configurations.Entities
 
                  new Product
                  {
-                     Id = 1,
+                     Id = 1, 
                      BrandId = 1,
                      CategoryId = 1,
                      Name = "",
