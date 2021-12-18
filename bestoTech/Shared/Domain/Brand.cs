@@ -8,6 +8,13 @@ namespace bestoTech.Shared.Domain
 {
     public class Brand : BaseDomainModel
     {
-        public string BrandName { get; set; }
+        public string Name { get; set; }
+        public int AvgRating { get; set; }
+        public int NumOfProduct { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+
     }
 }

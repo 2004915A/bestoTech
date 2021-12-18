@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class ProductCategory : BaseDomainModel
+    public class Category : BaseDomainModel
     {
-        public string ProductCategory { get; set; }
+        public string Name { get; set; }
     }
 }
