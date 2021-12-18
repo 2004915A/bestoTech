@@ -40,5 +40,7 @@ namespace bestoTech.Server.Data
             builder.ApplyConfiguration(new UserRoleSeedConfig());
             builder.ApplyConfiguration(new UserSeedConfig());
         }
+
+        public DbSet<bestoTech.Shared.Domain.ProductCategory> ProductCategory { get; set; }
     }
 }
