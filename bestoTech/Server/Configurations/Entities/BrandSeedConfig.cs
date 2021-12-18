@@ -16,12 +16,10 @@ namespace bestoTech.Server.Configurations.Entities
                 new Brand
                 {
                     Id = 1,
-                    BrandId = 1,
-                    BrandName = "Sony",
+                    Name = "Sony",
                     NumOfProduct = 1, 
                     CategoryId = 1, 
                     CategoryName = "",
-                    ProductName = "", 
                     AvgRating = 0,
 
 
@@ -33,12 +31,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Brand
                  {
                      Id = 2,
-                     BrandId = 2,
-                     BrandName = "Apple",
+                     Name = "Apple",
                      NumOfProduct = 2,
                      CategoryId = 2,
-                     CatergoryName = " ",
-                     ProductName = "",
+                     CategoryName = "",
                      AvgRating = 0,
 
                      DateCreated = DateTime.Now,
@@ -49,12 +45,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Brand
                  {
                      Id = 3,
-                     BrandId = 3,
-                     BrandName = "Samsung",
+                     Name = "Samsung",
                      NumOfProduct = 3,
                      CategoryId = 3,
                      CategoryName = " ",
-                     ProductName = "",
                      AvgRating = 0,
         
 
