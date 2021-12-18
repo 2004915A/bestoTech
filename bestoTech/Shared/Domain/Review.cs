@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class Review : BaseDomainModel
+    public class Review
     {
-        public int ReviewId { get; set; }
-        public string ReviewTitle { get; set; }
-        public string ReviewDescription { get; set; }
-        public int ReviewRating { get; set; }
-        public string ReviewStatus { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Rating { get; set; }
+        public string Status { get; set; }
         public int RecieptId { get; set; }
 
-        public int UserId { get; set; }
         public virtual User User { get; set; }
-        public int ProductId { get; set; }
         public virtual Product Product { get; set; }
-        public int BrandId { get; set; }
+        public virtual Brand Brand { get; set; }
     }
 }

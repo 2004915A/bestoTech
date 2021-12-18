@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class User : BaseDomainModel
+    public class User
     {
         public string EmailAddress { get; set; }
         public virtual List<Review> Reviews { get; set; }

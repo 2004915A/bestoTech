@@ -21,7 +21,7 @@ namespace bestoTech.Server.Data
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AStore> AStores { get; set; }
         public DbSet<AffiliateLink> AffiliateLinks { get; set; }

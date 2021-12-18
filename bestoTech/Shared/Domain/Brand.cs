@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class Brand : BaseDomainModel
+    public class Brand
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int AvgRating { get; set; }
         public int NumOfProduct { get; set; }

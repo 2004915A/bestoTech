@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class AStore
+    public class ProductCategory
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
