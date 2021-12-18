@@ -17,10 +17,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Product
                  {
                      Id = 1,
-                     BrandId = 1,
-                     CategoryId = 1,
-                     Name = "",
-                     Description = "The latest sensor, processing engine, and AI-based autofocus work in tandem with cutting-edge still-photography and moviemaking technology to create a fresh, dynamic imaging experience. The α7 IV is the ideal hybrid, providing breathtaking still and movie imagery, along with flexible connectivity for on-the-spot transmission of your images.",
+                     BrandId = 1, // Apple
+                     CategoryId = 1, // Phones
+                     Name = "iPhone 13", 
+                     Description = "Apple iPhone 13",
                      AvgRating = 0,
                      TotalReviews = 0,
 
@@ -32,11 +32,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Product
                  {
                      Id = 2,
-                     BrandId = 2,
-                     CategoryId = 2,
-                     CategoryName = "",
-                     ProductName = "Alpha 7 IV full-frame hybrid camera",
-                     Description = "The latest sensor, processing engine, and AI-based autofocus work in tandem with cutting-edge still-photography and moviemaking technology to create a fresh, dynamic imaging experience. The α7 IV is the ideal hybrid, providing breathtaking still and movie imagery, along with flexible connectivity for on-the-spot transmission of your images.",
+                     BrandId = 1, // Apple
+                     CategoryId = 1, // Phones
+                     Name = "iPhone 12",
+                     Description = "Apple iPhone 12",
                      AvgRating = 0,
                      TotalReviews = 0,
 
@@ -48,12 +47,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Product
                  {
                      Id = 3,
-                     BrandId = 3,
-                     BrandName = "",
-                     CategoryId = 3,
-                     CategoryName = "",
-                     ProductName = "Alpha 7 IV full-frame hybrid camera",
-                     Description = "The latest sensor, processing engine, and AI-based autofocus work in tandem with cutting-edge still-photography and moviemaking technology to create a fresh, dynamic imaging experience. The α7 IV is the ideal hybrid, providing breathtaking still and movie imagery, along with flexible connectivity for on-the-spot transmission of your images.",
+                     BrandId = 1, // Apple
+                     CategoryId = 1, // Phones
+                     Name = "iPhone 11",
+                     Description = "Apple iPhone 11",
                      AvgRating = 0,
                      TotalReviews = 0,
 
