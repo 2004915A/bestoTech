@@ -1,4 +1,5 @@
-﻿using bestoTech.Server.Models;
+﻿using bestoTech.Server.Configurations.Entities;
+using bestoTech.Server.Models;
 using bestoTech.Shared.Domain;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
@@ -20,11 +21,24 @@ namespace bestoTech.Server.Data
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categorys { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AStore> AStores { get; set; }
         public DbSet<AffiliateLink> AffiliateLinks { get; set; }
-        public DbSet<User> Users1 { get; set; }
-        
+        public DbSet<User> User1 { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new AffiliateLinkSeedConfig());
+            builder.ApplyConfiguration(new AStoreSeedConfig());
+            builder.ApplyConfiguration(new BrandSeedConfig());
+            builder.ApplyConfiguration(new CategorySeedConfig());
+            builder.ApplyConfiguration(new ProductSeedConfig());
+            builder.ApplyConfiguration(new ReviewSeedConfig());
+            builder.ApplyConfiguration(new RoleSeedConfig());
+            builder.ApplyConfiguration(new UserRoleSeedConfig());
+            builder.ApplyConfiguration(new UserSeedConfig());
+        }
     }
 }
