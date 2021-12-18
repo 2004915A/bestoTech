@@ -15,6 +15,11 @@ namespace bestoTech.Shared.Domain
         public string Status { get; set; }
         public int RecieptId { get; set; }
 
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+
         public virtual User User { get; set; }
         public virtual Product Product { get; set; }
         public virtual Brand Brand { get; set; }

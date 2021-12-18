@@ -8,6 +8,7 @@ namespace bestoTech.Shared.Domain
 {
     public class User
     {
+        public int Id { get; set; }
         public string EmailAddress { get; set; }
         public virtual List<Review> Reviews { get; set; }
     }

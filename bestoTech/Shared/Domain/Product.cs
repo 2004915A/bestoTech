@@ -15,6 +15,6 @@ namespace bestoTech.Shared.Domain
         public int TotalReviews { get; set; }
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; } 
-        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual List<ProductCategory> ProductCategory { get; set; }
     }
 }
