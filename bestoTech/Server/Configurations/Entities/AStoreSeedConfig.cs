@@ -8,36 +8,35 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Server.Configurations.Entities
 {
-    public class AffiliateLinkSeedConfig : IEntityTypeConfiguration<AffiliateLink>
+    public class AStoreSeedConfig : IEntityTypeConfiguration<AStore>
     {
-        public void Configure(EntityTypeBuilder<AffiliateLink> builder)
+        public void Configure(EntityTypeBuilder<AStore> builder)
         {
             builder.HasData(
 
-                new AffiliateLink
+                new AStore
                 {
                     Id = 1,
-                    Link = "",
-                    Price = 0,
+                    Name = "Amazon",
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
                     CreatedBy = "System",
                     UpdatedBy = "System"
                 },
-                new AffiliateLink
+                new AStore
                 {
                     Id = 2,
-
+                    Name = "Shopee",
 
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
                     CreatedBy = "System",
                     UpdatedBy = "System"
                 },
-                new AffiliateLink
+                new AStore
                 {
                     Id = 3,
-
+                    Name = "Lazada",
 
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
