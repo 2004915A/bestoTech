@@ -24,7 +24,7 @@ namespace bestoTech.Server.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AStore> AStores { get; set; }
         public DbSet<AffiliateLink> AffiliateLinks { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Users1 { get; set; }
         
     }
 }
