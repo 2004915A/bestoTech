@@ -13,7 +13,6 @@ namespace bestoTech.Shared.Domain
         public int ProductId {get;set;}
         public virtual Product Product { get; set; }
         public int AStoreId { get; set; }
-        public string AStoreName { get; set; }
         public virtual AStore AStore { get; set; }
 
     }

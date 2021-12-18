@@ -16,7 +16,7 @@ namespace bestoTech.Server.Configurations.Entities
                 new Category
                 {
                     Id = 1,
-                    Name = "Smart Phones",
+                    Name = "Phones",
 
                     DateCreated = DateTime.Now,
                     DateUpdated = DateTime.Now,
