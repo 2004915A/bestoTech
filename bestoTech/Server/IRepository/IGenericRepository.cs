@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace CarRentalManagement.Server.IRepository
+namespace bestoTech.Server.IRepository
 {
     public interface IGenericRepository<T> where T : class
     {

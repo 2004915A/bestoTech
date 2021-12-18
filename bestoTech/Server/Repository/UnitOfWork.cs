@@ -1,7 +1,7 @@
-﻿using CarRentalManagement.Server.Data;
-using CarRentalManagement.Server.IRepository;
-using CarRentalManagement.Server.Models;
-using CarRentalManagement.Shared.Domain;
+﻿using bestoTech.Server.Data;
+using bestoTech.Server.IRepository;
+using bestoTech.Server.Models;
+using bestoTech.Shared.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +11,18 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace CarRentalManagement.Server.Repository
+namespace bestoTech.Server.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-        private IGenericRepository<Make> _makes;
-        private IGenericRepository<Model> _models;
-        private IGenericRepository<Colour> _colours;
-        private IGenericRepository<Booking> _bookings;
-        private IGenericRepository<Customer> _customers;
-        private IGenericRepository<Vehicle> _vehicles;
+        private IGenericRepository<Product> _products;
+        private IGenericRepository<ProductCategory> _productcategories;
+        private IGenericRepository<Category> _categories;
+        private IGenericRepository<Brand> _brands;
+        private IGenericRepository<AStore> _astores;
+        private IGenericRepository<AffiliateLink> _affiliatelinks;
+        private IGenericRepository<Review> _reviews;
 
         private UserManager<ApplicationUser> _userManager;
 
@@ -31,18 +32,20 @@ namespace CarRentalManagement.Server.Repository
             _userManager = userManager;
         }
 
-        public IGenericRepository<Make> Makes
-            => _makes ??= new GenericRepository<Make>(_context);
-        public IGenericRepository<Model> Models
-            => _models ??= new GenericRepository<Model>(_context);
-        public IGenericRepository<Colour> Colours
-            => _colours ??= new GenericRepository<Colour>(_context);
-        public IGenericRepository<Vehicle> Vehicles
-            => _vehicles ??= new GenericRepository<Vehicle>(_context);
-        public IGenericRepository<Booking> Bookings
-            => _bookings ??= new GenericRepository<Booking>(_context);
-        public IGenericRepository<Customer> Customers
-            => _customers ??= new GenericRepository<Customer>(_context);
+        public IGenericRepository<Product> Products
+            => _products ??= new GenericRepository<Product>(_context);
+        public IGenericRepository<ProductCategory> ProductCategories
+            => _productcategories ??= new GenericRepository<ProductCategory>(_context);
+        public IGenericRepository<Category> Categories
+            => _categories ??= new GenericRepository<Category>(_context);
+        public IGenericRepository<Brand> Brands
+            => _brands ??= new GenericRepository<Brand>(_context);
+        public IGenericRepository<AStore> AStores
+            => _astores ??= new GenericRepository<AStore>(_context);
+        public IGenericRepository<AffiliateLink> AffiliateLinks
+            => _affiliatelinks ??= new GenericRepository<AffiliateLink>(_context);
+        public IGenericRepository<Review> Reviews
+            => _reviews ??= new GenericRepository<Review>(_context);
 
         public void Dispose()
         {
@@ -58,17 +61,6 @@ namespace CarRentalManagement.Server.Repository
             var entries = _context.ChangeTracker.Entries()
                 .Where(q => q.State == EntityState.Modified ||
                     q.State == EntityState.Added);
-
-            foreach (var entry in entries)
-            {
-                ((BaseDomainModel)entry.Entity).DateUpdated = DateTime.Now;
-                ((BaseDomainModel)entry.Entity).UpdatedBy = user;
-                if (entry.State == EntityState.Added)
-                {
-                    ((BaseDomainModel)entry.Entity).DateCreated = DateTime.Now;
-                    ((BaseDomainModel)entry.Entity).CreatedBy = user;
-                }
-            }
 
             await _context.SaveChangesAsync();
         }

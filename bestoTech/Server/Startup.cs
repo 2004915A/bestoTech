@@ -1,5 +1,7 @@
 using bestoTech.Server.Data;
+using bestoTech.Server.IRepository;
 using bestoTech.Server.Models;
+using bestoTech.Server.Repository;
 using CarRentalManagement.Server.IRepository;
 using CarRentalManagement.Server.Repository;
 using Microsoft.AspNetCore.Authentication;
