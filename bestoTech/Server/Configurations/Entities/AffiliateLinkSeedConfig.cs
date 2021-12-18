@@ -17,6 +17,7 @@ namespace bestoTech.Server.Configurations.Entities
                 new AffiliateLink
                 {
                     Id = 1,
+                    ProductId = 1,
                     Link = "",
                     Price = 0,
                     DateCreated = DateTime.Now,
