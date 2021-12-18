@@ -21,10 +21,7 @@ namespace bestoTech.Server.Configurations.Entities
                     CategoryId = 1, 
                     AvgRating = 0,
 
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
+
                 },
                  new Brand
                  {

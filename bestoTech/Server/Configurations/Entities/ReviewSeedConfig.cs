@@ -12,15 +12,14 @@ namespace bestoTech.Server.Configurations.Entities
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Review> builder)
         {
             builder.HasData(
-                
+
                 new Review
                 {
                     Id = 1,
-                    ProductId = 1,
-                    ReviewTitle = "Title1",
-                    ReviewDescription = " ",
-                    ReviewRating = 1,
-                    ReviewStatus = "Yes",
+                    Title = "Title1",
+                    Description = " ",
+                    Rating = 1,
+                    Status = "Yes",
                     RecieptId = 1,
 
                     DateCreated = DateTime.Now,
@@ -31,11 +30,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Review
                  {
                      Id = 2,
-                     ProductId = 2,
-                     ReviewTitle = "Title2",
-                     ReviewDescription = " ",
-                     ReviewRating = 2,
-                     ReviewStatus = "Yes",
+                     Title = "Title2",
+                     Description = " ",
+                     Rating = 2,
+                     Status = "Yes",
                      RecieptId = 2,
 
                      DateCreated = DateTime.Now,
@@ -46,11 +44,10 @@ namespace bestoTech.Server.Configurations.Entities
                  new Review
                  {
                      Id = 3,
-                     ProductId = 3,
-                     ReviewTitle = "Title3",
-                     ReviewDescription = " ",
-                     ReviewRating = 3,
-                     ReviewStatus = "Yes",
+                     Title = "Title3",
+                     Description = " ",
+                     Rating = 3,
+                     Status = "Yes",
                      RecieptId = 3,
 
                      DateCreated = DateTime.Now,

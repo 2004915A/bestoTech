@@ -18,30 +18,16 @@ namespace bestoTech.Server.Configurations.Entities
                 {
                     Id = 1,
                     Name = "Amazon",
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 },
                 new AStore
                 {
                     Id = 2,
                     Name = "Shopee",
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 },
                 new AStore
                 {
                     Id = 3,
                     Name = "Lazada",
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 }
                 ); ; ;
         }
