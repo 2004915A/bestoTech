@@ -18,39 +18,22 @@ namespace bestoTech.Server.Configurations.Entities
                     Id = 1,
                     Name = "Apple",
                     NumOfProduct = 3, 
-                    CategoryId = 1, 
-                    AvgRating = 0,
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
+                    AvgRating = 0
                 },
                  new Brand
                  {
                      Id = 2,
                      Name = "Samsung",
                      NumOfProduct = 2,
-                     CategoryId = 2,
-                     AvgRating = 0,
+                     AvgRating = 0
 
-                     DateCreated = DateTime.Now,
-                     DateUpdated = DateTime.Now,
-                     CreatedBy = "System",
-                     UpdatedBy = "System"
                  },
                  new Brand
                  {
                      Id = 3,
                      Name = "Sony",
                      NumOfProduct = 1,
-                     CategoryId = 3,
-                     AvgRating = 0,
-        
-                     DateCreated = DateTime.Now,
-                     DateUpdated = DateTime.Now,
-                     CreatedBy = "System",
-                     UpdatedBy = "System"
+                     AvgRating = 0
                  }
             ); ; ;
         }

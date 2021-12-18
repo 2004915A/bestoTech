@@ -17,31 +17,16 @@ namespace bestoTech.Server.Configurations.Entities
                 {
                     Id = 1,
                     Name = "Phones",
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 },
                 new Category
                 {
                     Id = 2,
                     Name = "Audio and Visual",
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 },
                 new Category
                 {
                     Id = 3,
                     Name = "Cameras",
-
-                    DateCreated = DateTime.Now,
-                    DateUpdated = DateTime.Now,
-                    CreatedBy = "System",
-                    UpdatedBy = "System"
                 });
         }
     }

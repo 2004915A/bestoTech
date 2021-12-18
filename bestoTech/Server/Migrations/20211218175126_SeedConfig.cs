@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace bestoTech.Server.Data.Migrations
+namespace bestoTech.Server.Migrations
 {
-    public partial class AddedDefaultDataAndUser1 : Migration
+    public partial class SeedConfig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,11 +54,7 @@ namespace bestoTech.Server.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,20 +62,16 @@ namespace bestoTech.Server.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categorys",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categorys", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,20 +114,16 @@ namespace bestoTech.Server.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User1",
+                name: "Users1",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User1", x => x.Id);
+                    table.PrimaryKey("PK_Users1", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -253,22 +241,17 @@ namespace bestoTech.Server.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AvgRating = table.Column<int>(type: "int", nullable: false),
                     NumOfProduct = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Brands", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Brands_Categorys_CategoryId",
+                        name: "FK_Brands_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categorys",
+                        principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -278,16 +261,11 @@ namespace bestoTech.Server.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AvgRating = table.Column<float>(type: "real", nullable: false),
                     TotalReviews = table.Column<int>(type: "int", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BrandId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -297,13 +275,13 @@ namespace bestoTech.Server.Data.Migrations
                         column: x => x.BrandId,
                         principalTable: "Brands",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Products_Categorys_CategoryId",
+                        name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categorys",
+                        principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -314,12 +292,8 @@ namespace bestoTech.Server.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Link = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    AStoreId = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    AStoreId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -329,13 +303,39 @@ namespace bestoTech.Server.Data.Migrations
                         column: x => x.AStoreId,
                         principalTable: "AStores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AffiliateLinks_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCategory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -344,45 +344,60 @@ namespace bestoTech.Server.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ReviewId = table.Column<int>(type: "int", nullable: false),
-                    ReviewTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReviewDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReviewRating = table.Column<int>(type: "int", nullable: false),
-                    ReviewStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RecieptId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    BrandId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reviews", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Reviews_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Reviews_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Reviews_User1_UserId",
+                        name: "FK_Reviews_Users1_UserId",
                         column: x => x.UserId,
-                        principalTable: "User1",
+                        principalTable: "Users1",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "AStores",
-                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Name", "UpdatedBy" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(469), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(475), "Amazon", "System" },
-                    { 2, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(478), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(479), "Shopee", "System" },
-                    { 3, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(481), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(482), "Lazada", "System" }
+                    { 1, "Amazon" },
+                    { 2, "Shopee" },
+                    { 3, "Lazada" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AffiliateLinks",
+                columns: new[] { "Id", "AStoreId", "Link", "Price", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, null, "https://www.amazon.sg/", 0, null },
+                    { 2, null, "https://shopee.sg/", 0, null },
+                    { 3, null, "https://www.lazada.sg/", 0, null }
                 });
 
             migrationBuilder.InsertData(
@@ -390,74 +405,59 @@ namespace bestoTech.Server.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "1f7961e6-0b6d-4094-8918-8a72de235668", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "2c67c85d-7c2d-466b-9b84-89b269e8425e", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "1bf460ee-9754-41c4-a42b-17c8f315fb15", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "06a26edb-816b-47e5-9592-422ebad22af0", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "4a1aed59-e68a-4dfd-a13a-2d6c9550f97d", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEH3pe5BYxYzwRwuQrMPRTGut7CYD+K+zEoL4zf8J6pB4cwco8sozYWLZyHyrwfCpqQ==", null, false, "86219817-0edf-4745-b746-c62fb6c45b55", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "4b812eaf-6c22-40e3-ac5b-7ab9cef3f3d8", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEK72EHBEQHz0cTuek6msj/engDef8ehkxK2H1bNKk9eGPHTBZTb5grAqSBP/8+lk6w==", null, false, "8d285f1f-b2d8-41b0-8acf-bb36dabebf4a", false, "Admin" });
 
             migrationBuilder.InsertData(
-                table: "Categorys",
-                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Name", "UpdatedBy" },
+                table: "Brands",
+                columns: new[] { "Id", "AvgRating", "CategoryId", "Name", "NumOfProduct" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7322), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7327), "Phones", "System" },
-                    { 2, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7330), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7331), "Audio and Visual", "System" },
-                    { 3, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7332), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(7333), "Cameras", "System" }
+                    { 3, 0, null, "Sony", 1 },
+                    { 2, 0, null, "Samsung", 2 },
+                    { 1, 0, null, "Apple", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Phones" },
+                    { 2, "Audio and Visual" },
+                    { 3, "Cameras" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "AvgRating", "BrandId", "CategoryId", "Description", "Name", "TotalReviews" },
+                values: new object[,]
+                {
+                    { 1, 0f, null, null, "Apple iPhone 13", "iPhone 13", 0 },
+                    { 2, 0f, null, null, "Apple iPhone 12", "iPhone 12", 0 },
+                    { 3, 0f, null, null, "Apple iPhone 11", "iPhone 11", 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reviews",
+                columns: new[] { "Id", "BrandId", "CreatedBy", "DateCreated", "DateUpdated", "Description", "ProductId", "Rating", "RecieptId", "Status", "Title", "UpdatedBy", "UserId" },
+                values: new object[,]
+                {
+                    { 1, null, "System", new DateTime(2021, 12, 19, 1, 51, 26, 89, DateTimeKind.Local).AddTicks(3478), new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(1458), " ", null, 1, 1, "Yes", "Title1", "System", null },
+                    { 2, null, "System", new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2327), new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2333), " ", null, 2, 2, "Yes", "Title2", "System", null },
+                    { 3, null, "System", new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2336), new DateTime(2021, 12, 19, 1, 51, 26, 90, DateTimeKind.Local).AddTicks(2336), " ", null, 3, 3, "Yes", "Title3", "System", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[] { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "3781efa7-66dc-47f0-860f-e506d04102e4" });
-
-            migrationBuilder.InsertData(
-                table: "Brands",
-                columns: new[] { "Id", "AvgRating", "CategoryId", "CreatedBy", "DateCreated", "DateUpdated", "Name", "NumOfProduct", "ProductId", "UpdatedBy" },
-                values: new object[,]
-                {
-                    { 1, 0, 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4502), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4508), "Apple", 3, 0, "System" },
-                    { 2, 0, 2, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4512), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4513), "Samsung", 2, 0, "System" },
-                    { 3, 0, 3, "System", new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4514), new DateTime(2021, 12, 19, 0, 53, 29, 875, DateTimeKind.Local).AddTicks(4515), "Sony", 1, 0, "System" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "AvgRating", "BrandId", "CategoryId", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "ProductId", "TotalReviews", "UpdatedBy" },
-                values: new object[] { 1, 0f, 1, 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2022), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2027), "Apple iPhone 13", "iPhone 13", 0, 0, "System" });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "AvgRating", "BrandId", "CategoryId", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "ProductId", "TotalReviews", "UpdatedBy" },
-                values: new object[] { 2, 0f, 1, 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2031), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2032), "Apple iPhone 12", "iPhone 12", 0, 0, "System" });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "AvgRating", "BrandId", "CategoryId", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "ProductId", "TotalReviews", "UpdatedBy" },
-                values: new object[] { 3, 0f, 1, 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2034), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(2035), "Apple iPhone 11", "iPhone 11", 0, 0, "System" });
-
-            migrationBuilder.InsertData(
-                table: "AffiliateLinks",
-                columns: new[] { "Id", "AStoreId", "CreatedBy", "DateCreated", "DateUpdated", "Link", "Price", "ProductId", "UpdatedBy" },
-                values: new object[,]
-                {
-                    { 1, 1, "System", new DateTime(2021, 12, 19, 0, 53, 29, 872, DateTimeKind.Local).AddTicks(8887), new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8094), "https://www.amazon.sg/", 0, 1, "System" },
-                    { 2, 2, "System", new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8959), new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8963), "https://shopee.sg/", 0, 2, "System" },
-                    { 3, 3, "System", new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8966), new DateTime(2021, 12, 19, 0, 53, 29, 873, DateTimeKind.Local).AddTicks(8967), "https://www.lazada.sg/", 0, 3, "System" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Reviews",
-                columns: new[] { "Id", "BrandId", "CreatedBy", "DateCreated", "DateUpdated", "ProductId", "RecieptId", "ReviewDescription", "ReviewId", "ReviewRating", "ReviewStatus", "ReviewTitle", "UpdatedBy", "UserId" },
-                values: new object[,]
-                {
-                    { 1, 0, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6533), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6539), 1, 1, " ", 0, 1, "Yes", "Title1", "System", 0 },
-                    { 2, 0, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6543), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6544), 2, 2, " ", 0, 2, "Yes", "Title2", "System", 0 },
-                    { 3, 0, "System", new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546), new DateTime(2021, 12, 19, 0, 53, 29, 876, DateTimeKind.Local).AddTicks(6546), 3, 3, " ", 0, 3, "Yes", "Title3", "System", 0 }
-                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AffiliateLinks_AStoreId",
@@ -540,6 +540,16 @@ namespace bestoTech.Server.Data.Migrations
                 columns: new[] { "SubjectId", "SessionId", "Type" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductCategory_CategoryId",
+                table: "ProductCategory",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategory_ProductId",
+                table: "ProductCategory",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_BrandId",
                 table: "Products",
                 column: "BrandId");
@@ -548,6 +558,11 @@ namespace bestoTech.Server.Data.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_BrandId",
+                table: "Reviews",
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ProductId",
@@ -587,6 +602,9 @@ namespace bestoTech.Server.Data.Migrations
                 name: "PersistedGrants");
 
             migrationBuilder.DropTable(
+                name: "ProductCategory");
+
+            migrationBuilder.DropTable(
                 name: "Reviews");
 
             migrationBuilder.DropTable(
@@ -602,13 +620,13 @@ namespace bestoTech.Server.Data.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "User1");
+                name: "Users1");
 
             migrationBuilder.DropTable(
                 name: "Brands");
 
             migrationBuilder.DropTable(
-                name: "Categorys");
+                name: "Categories");
         }
     }
 }
