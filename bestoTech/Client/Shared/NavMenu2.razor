@@ -8,7 +8,7 @@
     <div class="@NavMenuCssClass navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <NavLink class="nav-link" href="#" >
+                <NavLink class="nav-link" href="#">
                     Home
                 </NavLink>
             </li>
@@ -44,33 +44,33 @@
                             </NavLink>
                         </li>
                     </ul>
-                    
+
 
 
                     @*<li class="nav-item px-2">
-                        <NavLink class="nav-link" href="" @onclick"()=>dropdownMenu = !dropdownMenu">
-                            <span class="oi oi-person" aria-hidden="true"></span> My Account
-                        </NavLink>
-                    
-                    @if (dropdownMenu)
-                    {
-                    <ul class="nav flex-column">
-                        <li class="nav-item px-2">
-                            <NavLink class="nav-link" href="authentication/profile" >
-                                <span class="oi oi-person" aria-hidden="true"></span> Profile
+                            <NavLink class="nav-link" href="" @onclick"()=>dropdownMenu = !dropdownMenu">
+                                <span class="oi oi-person" aria-hidden="true"></span> My Account
                             </NavLink>
-                        </li>
-                        
-                        <li class="nav-item px-2">
-                            <NavLink class="nav-link" href="authentication/logout">
-                                <span class="oi oi-account-logout" aria-hidden="true"></span> Log out
-                            </NavLink>
-                        </li>
-                    </ul>
-                        
 
-                    }
-                    </li>*@
+                        @if (dropdownMenu)
+                        {
+                        <ul class="nav flex-column">
+                            <li class="nav-item px-2">
+                                <NavLink class="nav-link" href="authentication/profile" >
+                                    <span class="oi oi-person" aria-hidden="true"></span> Profile
+                                </NavLink>
+                            </li>
+
+                            <li class="nav-item px-2">
+                                <NavLink class="nav-link" href="authentication/logout">
+                                    <span class="oi oi-account-logout" aria-hidden="true"></span> Log out
+                                </NavLink>
+                            </li>
+                        </ul>
+
+
+                        }
+                        </li>*@
 
 
                 </Authorized>
@@ -91,8 +91,8 @@
     </div>
 </nav>
 
-@code { 
-    
+@code {
+
     private bool collapseNavMenu = true;
     private bool dropdownMenu;
 
@@ -101,9 +101,9 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
-    } 
-
-
     }
+
+
+}
 
 
