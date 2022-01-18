@@ -13,7 +13,8 @@ namespace bestoTech.Shared.Domain
         public int AvgRating { get; set; }
         public int NumOfProduct { get; set; }
         public virtual List<Product> Products { get; set; }
-        public virtual Category Category { get; set; }
+        public int? BrandCategoryId { get; set; }
+        public virtual BrandCategory BrandCategory { get; set; }
 
     }
 }

@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220118055226_newdb")]
+    [Migration("20220118162626_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "be9ef36b-b12e-4b77-b8e1-e2aff015ca3f",
+                            ConcurrencyStamp = "9a9d210c-a7ee-4e6f-a50b-cb57532f7772",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "be50dced-4c1f-48c3-90d3-8e121b5706ac",
+                            ConcurrencyStamp = "73e404ac-8fae-4292-ab85-15652974e0bc",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "167a9857-5cce-4425-9ea5-bcd3a527fcdb",
+                            ConcurrencyStamp = "2a920edc-d95c-4a42-a7f6-e958ad7620e7",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKR2VzNXVGLrk4e/aU0plRwGW4QikMsZRAHuOz0S7BF71/bxgumE69luH69P1PXypw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBxvqJgflHCD+i5L88b8fOYdIs7OQB8i9y4yhAjgSKnPmxUmkZ3tud79nJPQmtbUWA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35a0a1f2-45ad-4db9-8311-60c11fa02fdd",
+                            SecurityStamp = "27a8a15d-c1f5-4f65-a913-4e516d523809",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -463,7 +463,7 @@ namespace bestoTech.Server.Migrations
                     b.Property<int>("AvgRating")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int?>("BrandCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -474,7 +474,7 @@ namespace bestoTech.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("BrandCategoryId");
 
                     b.ToTable("Brands");
 
@@ -509,17 +509,7 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("BrandCategories");
                 });
@@ -531,10 +521,20 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BrandCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandCategoryId");
+
+                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Categories");
 
@@ -569,14 +569,14 @@ namespace bestoTech.Server.Migrations
                     b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TotalReviews")
                         .HasColumnType("int");
@@ -585,7 +585,9 @@ namespace bestoTech.Server.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductCategoryId")
+                        .IsUnique()
+                        .HasFilter("[ProductCategoryId] IS NOT NULL");
 
                     b.ToTable("Products");
 
@@ -623,17 +625,7 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategories");
                 });
@@ -696,8 +688,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 18, 13, 52, 25, 732, DateTimeKind.Local).AddTicks(9794),
-                            DateUpdated = new DateTime(2022, 1, 18, 13, 52, 25, 734, DateTimeKind.Local).AddTicks(3645),
+                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(2383),
+                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(9419),
                             Description = " ",
                             Rating = 1,
                             RecieptId = 1,
@@ -709,8 +701,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 18, 13, 52, 25, 734, DateTimeKind.Local).AddTicks(5396),
-                            DateUpdated = new DateTime(2022, 1, 18, 13, 52, 25, 734, DateTimeKind.Local).AddTicks(5406),
+                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(266),
+                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(271),
                             Description = " ",
                             Rating = 2,
                             RecieptId = 2,
@@ -722,8 +714,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 18, 13, 52, 25, 734, DateTimeKind.Local).AddTicks(5411),
-                            DateUpdated = new DateTime(2022, 1, 18, 13, 52, 25, 734, DateTimeKind.Local).AddTicks(5413),
+                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(274),
+                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(275),
                             Description = " ",
                             Rating = 3,
                             RecieptId = 3,
@@ -816,26 +808,22 @@ namespace bestoTech.Server.Migrations
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Brand", b =>
                 {
-                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
+                    b.HasOne("bestoTech.Shared.Domain.BrandCategory", "BrandCategory")
                         .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("BrandCategoryId");
 
-                    b.Navigation("Category");
+                    b.Navigation("BrandCategory");
                 });
 
-            modelBuilder.Entity("bestoTech.Shared.Domain.BrandCategory", b =>
+            modelBuilder.Entity("bestoTech.Shared.Domain.Category", b =>
                 {
-                    b.HasOne("bestoTech.Shared.Domain.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId");
+                    b.HasOne("bestoTech.Shared.Domain.BrandCategory", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("BrandCategoryId");
 
-                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.Navigation("Brand");
-
-                    b.Navigation("Category");
+                    b.HasOne("bestoTech.Shared.Domain.ProductCategory", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("ProductCategoryId");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Product", b =>
@@ -844,28 +832,13 @@ namespace bestoTech.Server.Migrations
                         .WithMany("Products")
                         .HasForeignKey("BrandId");
 
-                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
+                    b.HasOne("bestoTech.Shared.Domain.ProductCategory", "ProductCategory")
+                        .WithOne("Product")
+                        .HasForeignKey("bestoTech.Shared.Domain.Product", "ProductCategoryId");
 
                     b.Navigation("Brand");
 
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
-                {
-                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("bestoTech.Shared.Domain.Product", "Product")
-                        .WithMany("ProductCategory")
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
+                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>
@@ -894,9 +867,16 @@ namespace bestoTech.Server.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("bestoTech.Shared.Domain.Product", b =>
+            modelBuilder.Entity("bestoTech.Shared.Domain.BrandCategory", b =>
                 {
-                    b.Navigation("ProductCategory");
+                    b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>

@@ -13,6 +13,7 @@ namespace bestoTech.Server.IRepository
         IGenericRepository<Brand> Brands { get; }
         IGenericRepository<Category> Categories { get; }
         IGenericRepository<ProductCategory> ProductCategories { get; }
+        IGenericRepository<BrandCategory> BrandCategories { get; }
         IGenericRepository<Review> Reviews { get; }
         IGenericRepository<AStore> AStores { get; }
         IGenericRepository<ALink> ALinks { get; }

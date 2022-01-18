@@ -10,6 +10,6 @@ namespace bestoTech.Shared.Domain
     {
         public int Id { get; set; }
         public virtual Product Product { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual List<Category> Categories { get; set; }
     }
 }
