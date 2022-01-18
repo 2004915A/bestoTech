@@ -31,8 +31,8 @@ namespace bestoTech.Server.Controllers
         public async Task<IActionResult> GetALinks()
         {
             //return await _context.ALinks.ToListAsync();
-            var affiliatelinks = await _unitOfWork.ALinks.GetAll();
-            return Ok(affiliatelinks);
+            var alinks = await _unitOfWork.ALinks.GetAll();
+            return Ok(alinks);
         }
 
         // GET: api/ALinks/5
@@ -40,30 +40,30 @@ namespace bestoTech.Server.Controllers
         //public async Task<ActionResult<ALink>> GetALink(int id)
         public async Task<IActionResult> GetALink(int id)
         {
-            //var affiliatelink = await _context.ALinks.FindAsync(id);
-            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
+            //var alink = await _context.ALinks.FindAsync(id);
+            var alink = await _unitOfWork.ALinks.Get(q => q.Id == id);
 
-            if (affiliatelink == null)
+            if (alink == null)
             {
                 return NotFound();
             }
 
-            //return affiliatelink;
-            return Ok(affiliatelink);
+            //return alink;
+            return Ok(alink);
         }
 
         // PUT: api/ALinks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutALink(int id, ALink affiliatelink)
+        public async Task<IActionResult> PutALink(int id, ALink alink)
         {
-            if (id != affiliatelink.Id)
+            if (id != alink.Id)
             {
                 return BadRequest();
             }
 
-            //_context.Entry(affiliatelink).State = EntityState.Modified;
-            _unitOfWork.ALinks.Update(affiliatelink);
+            //_context.Entry(alink).State = EntityState.Modified;
+            _unitOfWork.ALinks.Update(alink);
 
             try
             {
@@ -89,28 +89,28 @@ namespace bestoTech.Server.Controllers
         // POST: api/ALinks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ALink>> PostALink(ALink affiliatelink)
+        public async Task<ActionResult<ALink>> PostALink(ALink alink)
         {
-            // _context.ALinks.Add(affiliatelink);
+            // _context.ALinks.Add(alink);
             //await _context.SaveChangesAsync();
-            await _unitOfWork.ALinks.Insert(affiliatelink);
+            await _unitOfWork.ALinks.Insert(alink);
             await _unitOfWork.Save(HttpContext);
 
-            return CreatedAtAction("GetALink", new { id = affiliatelink.Id }, affiliatelink);
+            return CreatedAtAction("GetALink", new { id = alink.Id }, alink);
         }
 
         // DELETE: api/ALinks/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteALink(int id)
         {
-            //var affiliatelink = await _context.ALinks.FindAsync(id);
-            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
-            if (affiliatelink == null)
+            //var alink = await _context.ALinks.FindAsync(id);
+            var alink = await _unitOfWork.ALinks.Get(q => q.Id == id);
+            if (alink == null)
             {
                 return NotFound();
             }
 
-            //_context.ALinks.Remove(affiliatelink);
+            //_context.ALinks.Remove(alink);
             //await _context.SaveChangesAsync();
             await _unitOfWork.ALinks.Delete(id);
             await _unitOfWork.Save(HttpContext);
@@ -122,8 +122,8 @@ namespace bestoTech.Server.Controllers
         private async Task<bool> ALinkExists(int id)
         {
             //return _context.ALinks.Any(e => e.Id == id);
-            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
-            return affiliatelink != null;
+            var alink = await _unitOfWork.ALinks.Get(q => q.Id == id);
+            return alink != null;
         }
     }
 }
