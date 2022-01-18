@@ -13,35 +13,35 @@ namespace bestoTech.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AffiliateLinksController : ControllerBase
+    public class ALinksController : ControllerBase
     {
         //private readonly ApplicationDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
 
-        //public AffiliateLinksController(ApplicationDbContext context)
-        public AffiliateLinksController(IUnitOfWork unitOfWork)
+        //public ALinksController(ApplicationDbContext context)
+        public ALinksController(IUnitOfWork unitOfWork)
         {
             //_context = context;
             _unitOfWork = unitOfWork;
         }
 
-        // GET: api/AffiliateLinks
+        // GET: api/ALinks
         [HttpGet]
-        //public async Task<ActionResult<IEnumerable<AffiliateLink>>> GetAffiliateLinks()
-        public async Task<IActionResult> GetAffiliateLinks()
+        //public async Task<ActionResult<IEnumerable<ALink>>> GetALinks()
+        public async Task<IActionResult> GetALinks()
         {
-            //return await _context.AffiliateLinks.ToListAsync();
-            var affiliatelinks = await _unitOfWork.AffiliateLinks.GetAll();
+            //return await _context.ALinks.ToListAsync();
+            var affiliatelinks = await _unitOfWork.ALinks.GetAll();
             return Ok(affiliatelinks);
         }
 
-        // GET: api/AffiliateLinks/5
+        // GET: api/ALinks/5
         [HttpGet("{id}")]
-        //public async Task<ActionResult<AffiliateLink>> GetAffiliateLink(int id)
-        public async Task<IActionResult> GetAffiliateLink(int id)
+        //public async Task<ActionResult<ALink>> GetALink(int id)
+        public async Task<IActionResult> GetALink(int id)
         {
-            //var affiliatelink = await _context.AffiliateLinks.FindAsync(id);
-            var affiliatelink = await _unitOfWork.AffiliateLinks.Get(q => q.Id == id);
+            //var affiliatelink = await _context.ALinks.FindAsync(id);
+            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
 
             if (affiliatelink == null)
             {
@@ -52,10 +52,10 @@ namespace bestoTech.Server.Controllers
             return Ok(affiliatelink);
         }
 
-        // PUT: api/AffiliateLinks/5
+        // PUT: api/ALinks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAffiliateLink(int id, AffiliateLink affiliatelink)
+        public async Task<IActionResult> PutALink(int id, ALink affiliatelink)
         {
             if (id != affiliatelink.Id)
             {
@@ -63,7 +63,7 @@ namespace bestoTech.Server.Controllers
             }
 
             //_context.Entry(affiliatelink).State = EntityState.Modified;
-            _unitOfWork.AffiliateLinks.Update(affiliatelink);
+            _unitOfWork.ALinks.Update(affiliatelink);
 
             try
             {
@@ -72,8 +72,8 @@ namespace bestoTech.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                //if (!AffiliateLinkExists(id))
-                if (!await AffiliateLinkExists(id))
+                //if (!ALinkExists(id))
+                if (!await ALinkExists(id))
                 {
                     return NotFound();
                 }
@@ -86,43 +86,43 @@ namespace bestoTech.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/AffiliateLinks
+        // POST: api/ALinks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<AffiliateLink>> PostAffiliateLink(AffiliateLink affiliatelink)
+        public async Task<ActionResult<ALink>> PostALink(ALink affiliatelink)
         {
-            // _context.AffiliateLinks.Add(affiliatelink);
+            // _context.ALinks.Add(affiliatelink);
             //await _context.SaveChangesAsync();
-            await _unitOfWork.AffiliateLinks.Insert(affiliatelink);
+            await _unitOfWork.ALinks.Insert(affiliatelink);
             await _unitOfWork.Save(HttpContext);
 
-            return CreatedAtAction("GetAffiliateLink", new { id = affiliatelink.Id }, affiliatelink);
+            return CreatedAtAction("GetALink", new { id = affiliatelink.Id }, affiliatelink);
         }
 
-        // DELETE: api/AffiliateLinks/5
+        // DELETE: api/ALinks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAffiliateLink(int id)
+        public async Task<IActionResult> DeleteALink(int id)
         {
-            //var affiliatelink = await _context.AffiliateLinks.FindAsync(id);
-            var affiliatelink = await _unitOfWork.AffiliateLinks.Get(q => q.Id == id);
+            //var affiliatelink = await _context.ALinks.FindAsync(id);
+            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
             if (affiliatelink == null)
             {
                 return NotFound();
             }
 
-            //_context.AffiliateLinks.Remove(affiliatelink);
+            //_context.ALinks.Remove(affiliatelink);
             //await _context.SaveChangesAsync();
-            await _unitOfWork.AffiliateLinks.Delete(id);
+            await _unitOfWork.ALinks.Delete(id);
             await _unitOfWork.Save(HttpContext);
 
             return NoContent();
         }
 
-        //private bool AffiliateLinkExists(int id)
-        private async Task<bool> AffiliateLinkExists(int id)
+        //private bool ALinkExists(int id)
+        private async Task<bool> ALinkExists(int id)
         {
-            //return _context.AffiliateLinks.Any(e => e.Id == id);
-            var affiliatelink = await _unitOfWork.AffiliateLinks.Get(q => q.Id == id);
+            //return _context.ALinks.Any(e => e.Id == id);
+            var affiliatelink = await _unitOfWork.ALinks.Get(q => q.Id == id);
             return affiliatelink != null;
         }
     }

@@ -15,6 +15,6 @@ namespace bestoTech.Server.IRepository
         IGenericRepository<ProductCategory> ProductCategories { get; }
         IGenericRepository<Review> Reviews { get; }
         IGenericRepository<AStore> AStores { get; }
-        IGenericRepository<AffiliateLink> AffiliateLinks { get; }
+        IGenericRepository<ALink> ALinks { get; }
 }
 }

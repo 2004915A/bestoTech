@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bestoTech.Shared.Domain
 {
-    public class AffiliateLink 
+    public class ALink 
     {
         public int Id { get; set; }
         public string Link { get; set; }

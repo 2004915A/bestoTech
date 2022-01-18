@@ -26,13 +26,13 @@ namespace bestoTech.Server.Data
         public DbSet<BrandCategory> BrandCategories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AStore> AStores { get; set; }
-        public DbSet<AffiliateLink> AffiliateLinks { get; set; }
+        public DbSet<ALink> ALinks { get; set; }
         public DbSet<User> User1 { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new AffiliateLinkSeedConfig());
+            builder.ApplyConfiguration(new ALinkSeedConfig());
             builder.ApplyConfiguration(new AStoreSeedConfig());
             builder.ApplyConfiguration(new BrandSeedConfig());
             builder.ApplyConfiguration(new CategorySeedConfig());

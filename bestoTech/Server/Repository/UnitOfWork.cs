@@ -21,7 +21,7 @@ namespace bestoTech.Server.Repository
         private IGenericRepository<Category> _categories;
         private IGenericRepository<Brand> _brands;
         private IGenericRepository<AStore> _astores;
-        private IGenericRepository<AffiliateLink> _affiliatelinks;
+        private IGenericRepository<ALink> _affiliatelinks;
         private IGenericRepository<Review> _reviews;
 
         private UserManager<ApplicationUser> _userManager;
@@ -42,8 +42,8 @@ namespace bestoTech.Server.Repository
             => _brands ??= new GenericRepository<Brand>(_context);
         public IGenericRepository<AStore> AStores
             => _astores ??= new GenericRepository<AStore>(_context);
-        public IGenericRepository<AffiliateLink> AffiliateLinks
-            => _affiliatelinks ??= new GenericRepository<AffiliateLink>(_context);
+        public IGenericRepository<ALink> ALinks
+            => _affiliatelinks ??= new GenericRepository<ALink>(_context);
         public IGenericRepository<Review> Reviews
             => _reviews ??= new GenericRepository<Review>(_context);
 
