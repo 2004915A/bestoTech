@@ -23,8 +23,9 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
-    <Folder Include="Pages\Brands\" />
-    <Folder Include="Pages\Products\" />
+    <Folder Include="Pages\Categories\" />
+    <Folder Include="Pages\AStores\" />
+    <Folder Include="Pages\Products\NewFolder\" />
   </ItemGroup>
 
 </Project>
