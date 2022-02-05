@@ -12,7 +12,7 @@ namespace bestoTech.Client.Static
         public static readonly string ReviewsEndpoint = $"{Prefix}/reviews";
         public static readonly string BrandsEndpoint = $"{Prefix}/brands";
         public static readonly string ProductsEndpoint = $"{Prefix}/products";
-        public static readonly string CategoriesEndpoint = $"{Prefix}/Categories";
+        public static readonly string CategoriesEndpoint = $"{Prefix}/categories";
         public static readonly string BrandCategoriesEndpoint = $"{Prefix}/brandcategories";
         public static readonly string ProductCategoriesEndpoint = $"{Prefix}/productcategories";
         public static readonly string AStoresEndpoint = $"{Prefix}/astores";
