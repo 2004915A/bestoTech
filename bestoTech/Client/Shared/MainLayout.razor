@@ -1,16 +1,29 @@
 ﻿@inherits LayoutComponentBase
-
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+@*<div class="main">
+     <div class="top-row px-4 auth">
+         <NavMenu />
+     </div>
 
     <div class="main">
-        <div class="top-row px-4 auth">
-            <LoginDisplay />
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+         <div class="top-row px-4 auth">
+             <NavLink class="nav-link" href="/">Home</NavLink>
+         <NavLink class="nav-link" href="/brand">Brand</NavLink>
+         <NavLink class="nav-link" href="/brand/product">Product</NavLink>
+         <NavLink class="nav-link" href="/about">About Us</NavLink>
 
+         <LoginDisplay />
+
+         </div>
+
+
+         <div class="content px-4">
+             @Body
+         </div>
+     </div>*@
+
+<div class="page">
+    <div class="main">
+        <NavMenu2 />
         <div class="content px-4">
             @Body
         </div>

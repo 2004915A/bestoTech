@@ -1,4 +1,6 @@
-﻿using bestoTech.Server.Models;
+﻿using bestoTech.Server.Configurations.Entities;
+using bestoTech.Server.Models;
+using bestoTech.Shared.Domain;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
@@ -17,5 +19,30 @@ namespace bestoTech.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<BrandCategory> BrandCategories { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<AStore> AStores { get; set; }
+        public DbSet<ALink> ALinks { get; set; }
+        public DbSet<User> User1 { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            //builder.ApplyConfiguration(new ALinkSeedConfig());
+            builder.ApplyConfiguration(new AStoreSeedConfig());
+            builder.ApplyConfiguration(new BrandSeedConfig());
+            builder.ApplyConfiguration(new CategorySeedConfig());
+            //builder.ApplyConfiguration(new ProductSeedConfig());
+            //builder.ApplyConfiguration(new ReviewSeedConfig());
+            builder.ApplyConfiguration(new RoleSeedConfig());
+            builder.ApplyConfiguration(new UserRoleSeedConfig());
+            builder.ApplyConfiguration(new UserSeedConfig());
+        }
+
+        
     }
 }
