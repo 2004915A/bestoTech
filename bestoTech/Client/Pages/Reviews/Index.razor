@@ -4,8 +4,14 @@
 @attribute [Authorize]
 
 <h3 class="card-title">Reviews</h3>
-<br/>
-<br/>
+
+<a href="/reviews/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Write a Review
+</a>
+
+<br />
+<br />
 
 @if (Reviews == null)
 {
@@ -17,7 +23,14 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Rating</th>
+                <th>Posted By</th>
+                <th>Date</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,7 +38,13 @@ else
             @foreach (var review in Reviews)
             {
                 <tr>
+                    <td>@review.Status</td>
                     <td>@review.Title</td>
+                    <td>@review.Product.Name</td>
+                    <td>@review.Description</td>
+                    <td>@review.Rating / 5</td>
+                    <td>@review.CreatedBy</td>
+                    <td>@review.DateCreated</td>
                     <td>
                         <a href="/reviews/view/@review.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

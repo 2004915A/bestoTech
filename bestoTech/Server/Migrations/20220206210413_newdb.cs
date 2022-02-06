@@ -250,8 +250,9 @@ namespace bestoTech.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AvgRating = table.Column<float>(type: "real", nullable: false),
-                    NumOfProduct = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AvgRating = table.Column<float>(type: "real", nullable: true),
+                    NumOfProduct = table.Column<int>(type: "int", nullable: true),
                     BrandCategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -400,23 +401,23 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "d7c3c066-ddc6-4c1c-993a-ca5a9bc61874", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "770bdbeb-1ca1-4b8d-9edb-facc65b33b1e", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "8203a403-3f98-48e9-8b26-d4dececf9504", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "bdbbe290-9080-4e40-9e9c-f7aeb57ffbf5", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEHTtboVOxvptnrG8h7fQxkOLUAXNJl3swa0efaugubneEpKI9vi6TrbKl/9X0Qsmdw==", null, false, "db98a73b-6195-489a-a280-e61e52ff1980", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "f26a7786-36c1-43f6-9734-9defc0a878f7", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEG4432O/P7NhQdVJt3V17gNw09qUgvdzOZ7K426PlLjSKhpeNLwWL+15Szg1U1ZRMA==", null, false, "1c9f381f-64e4-432a-a0e0-9342be7bcc0b", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Brands",
-                columns: new[] { "Id", "AvgRating", "BrandCategoryId", "Name", "NumOfProduct" },
+                columns: new[] { "Id", "AvgRating", "BrandCategoryId", "Description", "Name", "NumOfProduct" },
                 values: new object[,]
                 {
-                    { 1, 0f, null, "Apple", 3 },
-                    { 2, 0f, null, "Samsung", 2 },
-                    { 3, 0f, null, "Sony", 1 }
+                    { 1, 0f, null, "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.", "Apple", 0 },
+                    { 2, 0f, null, "Samsung Electronics Co., Ltd. is a South Korean multinational electronics corporation headquartered in the Yeongtong District of Suwon.", "Samsung", 0 },
+                    { 3, 0f, null, "Sony Group Corporation, commonly known as Sony and stylized as SONY, is a Japanese multinational conglomerate corporation headquartered in Kōnan, Minato, Tokyo, Japan.", "Sony", 0 }
                 });
 
             migrationBuilder.InsertData(

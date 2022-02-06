@@ -12,8 +12,9 @@ namespace bestoTech.Shared.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public float AvgRating { get; set; }
-        public int NumOfProduct { get; set; }
+        public string Description { get; set; }
+        public float? AvgRating { get; set; }
+        public int? NumOfProduct { get; set; }
         public virtual List<Product> Products { get; set; }
         [ForeignKey("BrandCategoryId")]
         public int? BrandCategoryId { get; set; }

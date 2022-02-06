@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220206144549_newdb")]
+    [Migration("20220206210413_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "d7c3c066-ddc6-4c1c-993a-ca5a9bc61874",
+                            ConcurrencyStamp = "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "770bdbeb-1ca1-4b8d-9edb-facc65b33b1e",
+                            ConcurrencyStamp = "8203a403-3f98-48e9-8b26-d4dececf9504",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bdbbe290-9080-4e40-9e9c-f7aeb57ffbf5",
+                            ConcurrencyStamp = "f26a7786-36c1-43f6-9734-9defc0a878f7",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHTtboVOxvptnrG8h7fQxkOLUAXNJl3swa0efaugubneEpKI9vi6TrbKl/9X0Qsmdw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG4432O/P7NhQdVJt3V17gNw09qUgvdzOZ7K426PlLjSKhpeNLwWL+15Szg1U1ZRMA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "db98a73b-6195-489a-a280-e61e52ff1980",
+                            SecurityStamp = "1c9f381f-64e4-432a-a0e0-9342be7bcc0b",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -440,16 +440,19 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<float>("AvgRating")
+                    b.Property<float?>("AvgRating")
                         .HasColumnType("real");
 
                     b.Property<int?>("BrandCategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumOfProduct")
+                    b.Property<int?>("NumOfProduct")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -463,22 +466,25 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 1,
                             AvgRating = 0f,
+                            Description = "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.",
                             Name = "Apple",
-                            NumOfProduct = 3
+                            NumOfProduct = 0
                         },
                         new
                         {
                             Id = 2,
                             AvgRating = 0f,
+                            Description = "Samsung Electronics Co., Ltd. is a South Korean multinational electronics corporation headquartered in the Yeongtong District of Suwon.",
                             Name = "Samsung",
-                            NumOfProduct = 2
+                            NumOfProduct = 0
                         },
                         new
                         {
                             Id = 3,
                             AvgRating = 0f,
+                            Description = "Sony Group Corporation, commonly known as Sony and stylized as SONY, is a Japanese multinational conglomerate corporation headquartered in Kōnan, Minato, Tokyo, Japan.",
                             Name = "Sony",
-                            NumOfProduct = 1
+                            NumOfProduct = 0
                         });
                 });
 
