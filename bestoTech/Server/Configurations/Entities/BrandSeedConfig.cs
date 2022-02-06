@@ -17,14 +17,16 @@ namespace bestoTech.Server.Configurations.Entities
                 {
                     Id = 1,
                     Name = "Apple",
-                    NumOfProduct = 3, 
+                    Description = "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.",
+                    NumOfProduct = 0, 
                     AvgRating = 0
                 },
                  new Brand
                  {
                      Id = 2,
                      Name = "Samsung",
-                     NumOfProduct = 2,
+                     Description = "Samsung Electronics Co., Ltd. is a South Korean multinational electronics corporation headquartered in the Yeongtong District of Suwon.",
+                     NumOfProduct = 0,
                      AvgRating = 0
 
                  },
@@ -32,7 +34,8 @@ namespace bestoTech.Server.Configurations.Entities
                  {
                      Id = 3,
                      Name = "Sony",
-                     NumOfProduct = 1,
+                     Description = "Sony Group Corporation, commonly known as Sony and stylized as SONY, is a Japanese multinational conglomerate corporation headquartered in Kōnan, Minato, Tokyo, Japan.",
+                     NumOfProduct = 0,
                      AvgRating = 0
                  }
             ); ; ;

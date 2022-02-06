@@ -1,0 +1,90 @@
+﻿@page "/reviews/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3 class="card-title">Write a Review</h3>
+<br/>
+<br />
+
+<EditForm Model="@review" OnValidSubmit="CreateReview">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label>Title: </label>
+        <div>
+            <InputText @bind-Value="review.Title" class="form-control"/>
+            <ValidationMessage For="@( () => review.Title)" />
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Body: </label>
+        <div>
+            <InputText @bind-Value="review.Description" class="form-control"/>
+            <ValidationMessage For="@( () => review.Description)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Product: </label>
+        <div>
+            <InputSelect @bind-Value="review.ProductId" class="form-control">
+
+                @if (Products != null)
+                {
+                    <option value="">--- Select a Product ---</option>
+                    foreach (var product in Products)
+                    {
+                        <option value="@product.Id">@product.Name</option>
+                    }
+                }
+
+            </InputSelect>
+            <ValidationMessage For="@( () => review.ProductId)" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Rating: </label>
+        <div>
+            <InputSelect @bind-Value="review.Rating" class="form-control">
+                <option value="">--- Choose 1 out of 5 ---</option>
+                @if (Products != null)
+                {
+                    foreach (int rating in ratings)
+                    {
+                        <option value="@rating">@rating</option>
+                    }
+                }
+
+            </InputSelect>
+            <ValidationMessage For="@( () => review.Rating)" />
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block">
+        Submit Review
+    </button>
+</EditForm>
+
+
+@code {
+    Review review = new Review();
+    int[] ratings = { 1, 2, 3, 4, 5 };
+
+    private IList<Product> Products;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        Products = await _client.GetFromJsonAsync<List<Product>>($"{Endpoints.ProductsEndpoint}");
+    }
+
+    private async Task CreateReview()
+    {
+        await _client.PostAsJsonAsync(Endpoints.ReviewsEndpoint, review);
+        _navManager.NavigateTo("/reviews/");
+    }
+}
+

@@ -1,9 +1,15 @@
-﻿@page "/aStores/"
+﻿@page "/astores/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 
 <h3 class="card-title">AStores</h3>
+
+<a href="/astores/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Add an Affilate Store
+</a>
+
 <br/>
 <br/>
 
