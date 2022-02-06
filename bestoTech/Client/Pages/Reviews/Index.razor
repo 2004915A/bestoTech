@@ -26,6 +26,7 @@ else
                 <th>Status</th>
                 <th>Title</th>
                 <th>Product Name</th>
+                <th>Description</th>
                 <th>Rating</th>
                 <th>Posted By</th>
                 <th>Date</th>
@@ -39,8 +40,9 @@ else
                 <tr>
                     <td>@review.Status</td>
                     <td>@review.Title</td>
-                    @*<td>@review.Product.Name</td>*@
-                    <td>@review.Rating</td>
+                    <td>@review.Product.Name</td>
+                    <td>@review.Description</td>
+                    <td>@review.Rating / 5</td>
                     <td>@review.CreatedBy</td>
                     <td>@review.DateCreated</td>
                     <td>

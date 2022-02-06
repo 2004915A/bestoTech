@@ -1,5 +1,5 @@
 ﻿@inject HttpClient _client
-
+@inject NavigationManager _navManager
 <EditForm Model="@product" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
