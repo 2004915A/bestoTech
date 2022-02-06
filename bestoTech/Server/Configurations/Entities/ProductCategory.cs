@@ -24,7 +24,7 @@ namespace bestoTech.Server.Configurations.Entities
                 new ProductCategory
                 {
                     Id = 3,
-                });;
+                });;;
         }
     }
 }
