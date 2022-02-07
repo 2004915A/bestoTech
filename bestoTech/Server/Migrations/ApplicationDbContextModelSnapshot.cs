@@ -152,14 +152,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "062fb84d-3ecb-422a-9ac9-dee297468548",
+                            ConcurrencyStamp = "d0e2f6cc-8392-4924-9e66-cab483aff6dd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "173d72be-55a2-4b70-98db-d5b2b9eeeaf3",
+                            ConcurrencyStamp = "4b2f218c-f326-4614-b55e-bd3510e20f4a",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -355,7 +355,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4a955b2f-27eb-44b9-90b9-5ab175ba08be",
+                            ConcurrencyStamp = "eab6ccc3-51ba-4d47-a5db-f87fcedd8101",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -363,9 +363,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEOyX56vBvwSHF28YqVNO4OsaQnJiMg/L07h20zcWrs3vP0i33LT5O0UxmnyzQlWDw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "588edf54-f459-4f40-8066-0ad4a57739e8",
+                            SecurityStamp = "5e2ffa01-ab92-4b2a-8abc-88c1b74aa154",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -687,8 +687,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 33, 11, 395, DateTimeKind.Local).AddTicks(9990),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 33, 11, 396, DateTimeKind.Local).AddTicks(6717),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 15, DateTimeKind.Local).AddTicks(3212),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2067),
                             Description = " ",
                             Rating = 1,
                             RecieptId = 1,
@@ -700,8 +700,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 33, 11, 396, DateTimeKind.Local).AddTicks(7607),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 33, 11, 396, DateTimeKind.Local).AddTicks(7613),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2998),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3002),
                             Description = " ",
                             Rating = 2,
                             RecieptId = 2,
@@ -713,8 +713,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 33, 11, 396, DateTimeKind.Local).AddTicks(7616),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 33, 11, 396, DateTimeKind.Local).AddTicks(7617),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3005),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3006),
                             Description = " ",
                             Rating = 3,
                             RecieptId = 3,

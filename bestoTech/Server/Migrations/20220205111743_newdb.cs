@@ -417,14 +417,14 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "9a9d210c-a7ee-4e6f-a50b-cb57532f7772", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "73e404ac-8fae-4292-ab85-15652974e0bc", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "d0e2f6cc-8392-4924-9e66-cab483aff6dd", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "4b2f218c-f326-4614-b55e-bd3510e20f4a", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "2a920edc-d95c-4a42-a7f6-e958ad7620e7", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEBxvqJgflHCD+i5L88b8fOYdIs7OQB8i9y4yhAjgSKnPmxUmkZ3tud79nJPQmtbUWA==", null, false, "27a8a15d-c1f5-4f65-a913-4e516d523809", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "eab6ccc3-51ba-4d47-a5db-f87fcedd8101", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==", null, false, "5e2ffa01-ab92-4b2a-8abc-88c1b74aa154", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Brands",
@@ -432,8 +432,8 @@ namespace bestoTech.Server.Migrations
                 values: new object[,]
                 {
                     { 3, 0, null, "Sony", 1 },
-                    { 2, 0, null, "Samsung", 2 },
-                    { 1, 0, null, "Apple", 3 }
+                    { 1, 0, null, "Apple", 3 },
+                    { 2, 0, null, "Samsung", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -451,7 +451,6 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "AvgRating", "BrandId", "Description", "Name", "ProductCategoryId", "TotalReviews" },
                 values: new object[,]
                 {
-                    { 1, 0f, null, "Apple iPhone 13", "iPhone 13", null, 0 },
                     { 2, 0f, null, "Apple iPhone 12", "iPhone 12", null, 0 },
                     { 3, 0f, null, "Apple iPhone 11", "iPhone 11", null, 0 }
                 });
@@ -461,15 +460,20 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "BrandId", "CreatedBy", "DateCreated", "DateUpdated", "Description", "ProductId", "Rating", "RecieptId", "Status", "Title", "UpdatedBy", "UserId" },
                 values: new object[,]
                 {
-                    { 1, null, "System", new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(2383), new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(9419), " ", null, 1, 1, "Yes", "Title1", "System", null },
-                    { 2, null, "System", new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(266), new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(271), " ", null, 2, 2, "Yes", "Title2", "System", null },
-                    { 3, null, "System", new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(274), new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(275), " ", null, 3, 3, "Yes", "Title3", "System", null }
+                    { 2, null, "System", new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2998), new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3002), " ", null, 2, 2, "Yes", "Title2", "System", null },
+                    { 1, null, "System", new DateTime(2022, 2, 5, 19, 17, 43, 15, DateTimeKind.Local).AddTicks(3212), new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2067), " ", null, 1, 1, "Yes", "Title1", "System", null },
+                    { 3, null, "System", new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3005), new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3006), " ", null, 3, 3, "Yes", "Title3", "System", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[] { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "3781efa7-66dc-47f0-860f-e506d04102e4" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "AvgRating", "BrandId", "Description", "Name", "ProductCategoryId", "TotalReviews" },
+                values: new object[] { 1, 0f, 1, "Apple iPhone 13", "iPhone 13", null, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ALinks_AStoreId",

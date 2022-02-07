@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220118162626_newdb")]
+    [Migration("20220205111743_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "9a9d210c-a7ee-4e6f-a50b-cb57532f7772",
+                            ConcurrencyStamp = "d0e2f6cc-8392-4924-9e66-cab483aff6dd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "73e404ac-8fae-4292-ab85-15652974e0bc",
+                            ConcurrencyStamp = "4b2f218c-f326-4614-b55e-bd3510e20f4a",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a920edc-d95c-4a42-a7f6-e958ad7620e7",
+                            ConcurrencyStamp = "eab6ccc3-51ba-4d47-a5db-f87fcedd8101",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBxvqJgflHCD+i5L88b8fOYdIs7OQB8i9y4yhAjgSKnPmxUmkZ3tud79nJPQmtbUWA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "27a8a15d-c1f5-4f65-a913-4e516d523809",
+                            SecurityStamp = "5e2ffa01-ab92-4b2a-8abc-88c1b74aa154",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -596,6 +596,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 1,
                             AvgRating = 0f,
+                            BrandId = 1,
                             Description = "Apple iPhone 13",
                             Name = "iPhone 13",
                             TotalReviews = 0
@@ -688,8 +689,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(2383),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 818, DateTimeKind.Local).AddTicks(9419),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 15, DateTimeKind.Local).AddTicks(3212),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2067),
                             Description = " ",
                             Rating = 1,
                             RecieptId = 1,
@@ -701,8 +702,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(266),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(271),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2998),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3002),
                             Description = " ",
                             Rating = 2,
                             RecieptId = 2,
@@ -714,8 +715,8 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(274),
-                            DateUpdated = new DateTime(2022, 1, 19, 0, 26, 25, 819, DateTimeKind.Local).AddTicks(275),
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3005),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3006),
                             Description = " ",
                             Rating = 3,
                             RecieptId = 3,
