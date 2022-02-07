@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220206210413_newdb")]
+    [Migration("20220207202436_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8",
+                            ConcurrencyStamp = "afe34209-78e9-4e1c-9761-f619f0b2eb2d",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "8203a403-3f98-48e9-8b26-d4dececf9504",
+                            ConcurrencyStamp = "1a91b971-a301-47d6-9333-33fd2ee530a5",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f26a7786-36c1-43f6-9734-9defc0a878f7",
+                            ConcurrencyStamp = "eeca103c-e273-40bc-af23-c58a131094c3",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG4432O/P7NhQdVJt3V17gNw09qUgvdzOZ7K426PlLjSKhpeNLwWL+15Szg1U1ZRMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOso4LpRALFEGgmut25lUlPtyB++KO6iYBRLYLOBV3bqhCPLr/iez2zEcq4Zz1BUMw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1c9f381f-64e4-432a-a0e0-9342be7bcc0b",
+                            SecurityStamp = "9769161f-795f-4744-9330-a2ebf4ef626c",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -384,12 +384,14 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Link")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Price")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -409,7 +411,9 @@ namespace bestoTech.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -447,10 +451,14 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("NumOfProduct")
                         .HasColumnType("int");
@@ -511,7 +519,9 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("ProductCategoryId")
                         .HasColumnType("int");
@@ -553,13 +563,18 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("real");
 
                     b.Property<int?>("BrandId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("ProductCategoryId")
                         .HasColumnType("int");
@@ -605,12 +620,16 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("Rating")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("RecieptId")
@@ -620,7 +639,9 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -711,7 +732,9 @@ namespace bestoTech.Server.Migrations
 
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AStore");
 
@@ -742,7 +765,9 @@ namespace bestoTech.Server.Migrations
                 {
                     b.HasOne("bestoTech.Shared.Domain.Brand", "Brand")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("bestoTech.Shared.Domain.ProductCategory", "ProductCategory")
                         .WithMany()
@@ -757,7 +782,9 @@ namespace bestoTech.Server.Migrations
                 {
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("bestoTech.Shared.Domain.User", null)
                         .WithMany("Reviews")

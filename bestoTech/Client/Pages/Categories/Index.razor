@@ -2,7 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
-@inject HttpInterceptorService _interceptor
+@*@inject HttpInterceptorService _interceptor*@
 @implements IDisposable
 
 <h3 class="card-title">Categories</h3>
@@ -22,7 +22,7 @@
 
 else
 {
-    <table class="table table-responsive" id="CatTable">
+    <table class="table table-responsive" id="categoriesTable">
         <thead>
             <tr>
                 <th>Name</th>
@@ -56,19 +56,8 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        _interceptor.MonitorEvent();
+        //_interceptor.MonitorEvent();
         Categories = await _client.GetFromJsonAsync<List<Category>>($"{Endpoints.CategoriesEndpoint}");
-    }
-
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        await js.InvokeVoidAsync("AddDataTable", "#CatTable");
-    }
-
-    public void Dispose()
-    {
-        _interceptor.DisposeEvent();
-        js.InvokeVoidAsync("DataTableDispose", "#CatTable");
     }
 
     async Task Delete(int categoryId)
@@ -80,5 +69,16 @@ else
             await _client.DeleteAsync($"{Endpoints.CategoriesEndpoint}/{categoryId}");
             await OnInitializedAsync();
         }
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#categoriesTable");
+    }
+
+    public void Dispose()
+    {
+        //_interceptor.DisposeEvent();
+        js.InvokeVoidAsync("DataTableDispose", "#categoriesTable");
     }
 }
