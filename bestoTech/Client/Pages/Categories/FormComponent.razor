@@ -2,23 +2,27 @@
 
     <DataAnnotationsValidator />
     <ValidationSummary />
-
-    <div class="form-group">
-        <label>Name: </label>
-        <div>
-            <InputText @bind-Value="@category.Name" class="form-control" />
-            <ValidationMessage For="@(() => category.Name)" />
+    <fieldset disabled="@Disabled">
+        <div class="form-group">
+            <label>Name: </label>
+            <div>
+                <InputText @bind-Value="@category.Name" class="form-control" />
+                <ValidationMessage For="@(() => category.Name)" />
+            </div>
         </div>
-    </div>
-
-    <button type="submit" class="btn btn-success btn-block">
-        @ButtonText
-    </button>
+    </fieldset>
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
     <BackToList Target="categories" />
 
 </EditForm>
 
 @code {
+    [Parameter] public bool Disabled { get; set; } = false;
     [Parameter] public Category category { get; set; }
     [Parameter] public string ButtonText { get; set; } = "Save";
     [Parameter] public EventCallback OnValidSubmit { get; set; }

@@ -23,8 +23,18 @@
                 </NavLink>
             </li>
             <li class="nav-item">
+                <NavLink class="nav-link" href="brandcategories">
+                    Brand Categories
+                </NavLink>
+            </li>
+            <li class="nav-item">
                 <NavLink class="nav-link" href="products">
                     Products
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="productcategories">
+                    Product Categories
                 </NavLink>
             </li>
             <li class="nav-item">
@@ -109,7 +119,7 @@
 @code {
 
     private bool collapseNavMenu = true;
-    private bool dropdownMenu;
+    //private bool dropdownMenu;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 

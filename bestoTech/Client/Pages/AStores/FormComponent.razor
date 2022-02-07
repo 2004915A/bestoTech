@@ -3,22 +3,27 @@
 <EditForm Model="@astore" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div class="form-group">
-        <label>Name: </label>
-        <div>
-            <InputText @bind-Value="astore.Name" class="form-control" />
-            <ValidationMessage For="@( () => astore.Name)" />
+    <fieldset disabled="@Disabled">
+        <div class="form-group">
+            <label>Name: </label>
+            <div>
+                <InputText @bind-Value="astore.Name" class="form-control" />
+                <ValidationMessage For="@( () => astore.Name)" />
+            </div>
+
         </div>
-
-    </div>
-
-    <button type="submit" class="btn btn-success btn-block">
-        Submit AStore
-    </button>
-    <BackToList Target="astores" />
+    </fieldset>
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
+    <@BackToList Target="astores" />
 </EditForm>
 
 @code {
+    [Parameter] public bool Disabled { get; set; } = false;
     [Parameter] public AStore astore { get; set; }
     [Parameter] public string ButtonText { get; set; } = "Save";
     [Parameter] public EventCallback OnValidSubmit { get; set; }

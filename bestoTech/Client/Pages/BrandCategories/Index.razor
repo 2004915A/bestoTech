@@ -1,0 +1,70 @@
+﻿@page "/brandcategories/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+
+<h3 class="card-title">BrandCategories</h3>
+
+<a href="/brandcategories/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Add a BrandCategory
+</a>
+
+<br/>
+<br/>
+
+@if (BrandCategories == null)
+{
+    <div class="alert alert-info">Loading BrandCategories...</div>
+}
+
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var brandcategory in BrandCategories)
+            {
+                <tr>
+                    <td>@brandcategory.Id</td>
+                    <td>
+                        <a href="/brandcategories/view/@brandcategory.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/brandcategories/edit/@brandcategory.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(brandcategory.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<BrandCategory> BrandCategories;
+
+    protected async override Task OnInitializedAsync()
+    {
+        BrandCategories = await _client.GetFromJsonAsync<List<BrandCategory>>($"{Endpoints.BrandsEndpoint}");
+    }
+
+    async Task Delete(int brandId)
+    {
+        var brandcategory = BrandCategories.First(q => q.Id == brandId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {brandcategory.Id}?");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoints.BrandCategoriesEndpoint}/{brandcategory.Id}");
+            await OnInitializedAsync();
+        }
+    }
+}
