@@ -1,8 +1,9 @@
 ﻿@page "/categories/"
 @inject HttpClient _client
 @inject IJSRuntime js
-@implements IDisposable
 @attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
 
 <h3 class="card-title">Categories</h3>
 
@@ -55,6 +56,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
+        _interceptor.MonitorEvent();
         Categories = await _client.GetFromJsonAsync<List<Category>>($"{Endpoints.CategoriesEndpoint}");
     }
 
@@ -65,6 +67,7 @@ else
 
     public void Dispose()
     {
+        _interceptor.DisposeEvent();
         js.InvokeVoidAsync("DataTableDispose", "#CatTable");
     }
 
