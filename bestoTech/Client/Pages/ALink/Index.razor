@@ -1,13 +1,13 @@
-﻿@page "/astores/"
+﻿@page "/alinks/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 @inject HttpInterceptorService _interceptor
 @implements IDisposable
 
-<h3 class="card-title">AStores</h3>
+<h3 class="card-title">ALinks</h3>
 
-<a href="/astores/create" class="btn btn-secondary">
+<a href="/alinks/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Add an Affilate Store
 </a>
@@ -15,9 +15,9 @@
 <br />
 <br />
 
-@if (AStores == null)
+@if (ALinks == null)
 {
-    <div class="alert alert-info">Loading AStores...</div>
+    <div class="alert alert-info">Loading ALinks...</div>
 }
 
 else
@@ -30,18 +30,18 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var aStore in AStores)
+            @foreach (var alink in ALinks)
             {
                 <tr>
-                    <td>@aStore.Name</td>
+                    <td>@alink.Link</td>
                     <td>
-                        <a href="/aStores/view/@aStore.Id" class="btn btn-primary">
+                        <a href="/alinks/view/@alink.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/aStores/edit/@aStore.Id" class="btn btn-warning">
+                        <a href="/alinks/edit/@alink.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(aStore.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(alink.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>
@@ -52,21 +52,21 @@ else
 }
 
 @code {
-    private List<AStore> AStores;
+    private List<ALink> ALinks;
 
     protected async override Task OnInitializedAsync()
     {
         _interceptor.MonitorEvent();
-        AStores = await _client.GetFromJsonAsync<List<AStore>>($"{Endpoints.AStoresEndpoint}");
+        ALinks = await _client.GetFromJsonAsync<List<ALink>>($"{Endpoints.ALinksEndpoint}");
     }
 
-    async Task Delete(int aStoreId)
+    async Task Delete(int alinkId)
     {
-        var aStore = AStores.First(q => q.Id == aStoreId);
-        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {aStore.Name}?");
+        var alink = ALinks.First(q => q.Id == alinkId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {alink.Link}?");
         if (confirm)
         {
-            await _client.DeleteAsync($"{Endpoints.AStoresEndpoint}/{aStoreId}");
+            await _client.DeleteAsync($"{Endpoints.ALinksEndpoint}/{alinkId}");
             await OnInitializedAsync();
         }
     }

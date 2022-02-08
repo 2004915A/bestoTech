@@ -11,7 +11,9 @@ namespace bestoTech.Shared.Domain
     public class Brand
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter a name"), MaxLength(20)]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter a description"), MaxLength(500), MinLength(10)]
         public string Description { get; set; }
         public float? AvgRating { get; set; }
         public int? NumOfProduct { get; set; }

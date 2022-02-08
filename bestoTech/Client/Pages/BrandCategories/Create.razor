@@ -1,0 +1,30 @@
+﻿@page "/brandcategories/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3 class="card-title">Create a BrandCategory</h3>
+<br/>
+<br />
+
+<FormComponent ButtonText="Add Brand Category" OnValidSubmit="CreateBrandCategory" brandcategory="brandcategory" />
+
+
+@code {
+    BrandCategory brandcategory = new BrandCategory();
+
+    private IList<BrandCategory> BrandCategories;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        BrandCategories = await _client.GetFromJsonAsync<List<BrandCategory>>($"{Endpoints.BrandCategoriesEndpoint}");
+
+    }
+
+    private async Task CreateBrandCategory()
+    {
+        await _client.PostAsJsonAsync(Endpoints.BrandCategoriesEndpoint, brandcategory);
+        _navManager.NavigateTo("/brandcategories/");
+    }
+}
+

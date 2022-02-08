@@ -1,14 +1,16 @@
-﻿<EditForm Model="@category" OnValidSubmit="@OnValidSubmit">
+﻿@inject HttpClient _client
 
+<EditForm Model="@alink" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <fieldset disabled="@Disabled">
         <div class="form-group">
             <label>Name: </label>
             <div>
-                <InputText @bind-Value="@category.Name" class="form-control" />
-                <ValidationMessage For="@(() => category.Name)" />
+                <InputText @bind-Value="alink.Link" class="form-control" />
+                <ValidationMessage For="@( () => alink.Link)" />
             </div>
+
         </div>
     </fieldset>
     @if (!Disabled)
@@ -17,13 +19,12 @@
             @ButtonText
         </button>
     }
-    <BackToList Target="categories" />
-
+    <@BackToList Target="alinks" />
 </EditForm>
 
 @code {
     [Parameter] public bool Disabled { get; set; } = false;
-    [Parameter] public Category category { get; set; }
+    [Parameter] public ALink alink { get; set; }
     [Parameter] public string ButtonText { get; set; } = "Save";
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 }

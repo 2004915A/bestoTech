@@ -6,7 +6,7 @@
 <br/>
 <br />
 
-<FormComponent ButtonText="Write a Review" OnValidSubmit="CreateReview" review="review" />
+<FormComponent ButtonText="Submit Review" OnValidSubmit="CreateReview" review="review" />
 
 
 @code {
@@ -23,6 +23,7 @@
 
     private async Task CreateReview()
     {
+        review.DateCreated = DateTime.Now;
         await _client.PostAsJsonAsync(Endpoints.ReviewsEndpoint, review);
         _navManager.NavigateTo("/reviews/");
     }

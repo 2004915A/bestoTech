@@ -1,23 +1,23 @@
-﻿@page "/brands/"
+﻿@page "/brandcategories/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 @inject HttpInterceptorService _interceptor
 @implements IDisposable
 
-<h3 class="card-title">Brands</h3>
+<h3 class="card-title">BrandCategories</h3>
 
-<a href="/brands/create" class="btn btn-secondary">
+<a href="/brandcategories/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
-    Add a Brand
+    Add a BrandCategory
 </a>
 
 <br />
 <br />
 
-@if (Brands == null)
+@if (BrandCategories == null)
 {
-    <div class="alert alert-info">Loading Brands...</div>
+    <div class="alert alert-info">Loading BrandCategories...</div>
 }
 
 else
@@ -30,18 +30,18 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var brand in Brands)
+            @foreach (var brandcategory in BrandCategories)
             {
                 <tr>
-                    <td>@brand.Name</td>
+                    <td>@brandcategory.Id</td>
                     <td>
-                        <a href="/brands/view/@brand.Id" class="btn btn-primary">
+                        <a href="/brandcategories/view/@brandcategory.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/brands/edit/@brand.Id" class="btn btn-warning">
+                        <a href="/brandcategories/edit/@brandcategory.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(brand.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(brandcategory.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>
@@ -52,21 +52,21 @@ else
 }
 
 @code {
-    private List<Brand> Brands;
+    private List<BrandCategory> BrandCategories;
 
     protected async override Task OnInitializedAsync()
     {
         _interceptor.MonitorEvent();
-        Brands = await _client.GetFromJsonAsync<List<Brand>>($"{Endpoints.BrandsEndpoint}");
+        BrandCategories = await _client.GetFromJsonAsync<List<BrandCategory>>($"{Endpoints.BrandsEndpoint}");
     }
 
     async Task Delete(int brandId)
     {
-        var brand = Brands.First(q => q.Id == brandId);
-        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {brand.Name}?");
+        var brandcategory = BrandCategories.First(q => q.Id == brandId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {brandcategory.Id}?");
         if (confirm)
         {
-            await _client.DeleteAsync($"{Endpoints.BrandsEndpoint}/{brandId}");
+            await _client.DeleteAsync($"{Endpoints.BrandCategoriesEndpoint}/{brandcategory.Id}");
             await OnInitializedAsync();
         }
     }
