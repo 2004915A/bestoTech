@@ -17,8 +17,6 @@ namespace bestoTech.Server.Repository
     {
         private readonly ApplicationDbContext _context;
         private IGenericRepository<Product> _products;
-        private IGenericRepository<ProductCategory> _productcategories;
-        private IGenericRepository<BrandCategory> _brandcategories;
         private IGenericRepository<Category> _categories;
         private IGenericRepository<Brand> _brands;
         private IGenericRepository<AStore> _astores;
@@ -35,10 +33,6 @@ namespace bestoTech.Server.Repository
 
         public IGenericRepository<Product> Products
             => _products ??= new GenericRepository<Product>(_context);
-        public IGenericRepository<ProductCategory> ProductCategories
-            => _productcategories ??= new GenericRepository<ProductCategory>(_context);
-        public IGenericRepository<BrandCategory> BrandCategories
-            => _brandcategories ??= new GenericRepository<BrandCategory>(_context);
         public IGenericRepository<Category> Categories
             => _categories ??= new GenericRepository<Category>(_context);
         public IGenericRepository<Brand> Brands
