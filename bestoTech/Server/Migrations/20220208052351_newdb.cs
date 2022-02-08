@@ -62,15 +62,16 @@ namespace bestoTech.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BrandCategories",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BrandCategories", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -110,31 +111,6 @@ namespace bestoTech.Server.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersistedGrants", x => x.Key);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductCategories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductCategories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User1",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User1", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,6 +220,27 @@ namespace bestoTech.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ALinks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: true),
+                    AStoreId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ALinks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ALinks_AStores_AStoreId",
+                        column: x => x.AStoreId,
+                        principalTable: "AStores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Brands",
                 columns: table => new
                 {
@@ -253,42 +250,15 @@ namespace bestoTech.Server.Migrations
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     AvgRating = table.Column<float>(type: "real", nullable: true),
                     NumOfProduct = table.Column<int>(type: "int", nullable: true),
-                    BrandCategoryId = table.Column<int>(type: "int", nullable: true)
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Brands", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Brands_BrandCategories_BrandCategoryId",
-                        column: x => x.BrandCategoryId,
-                        principalTable: "BrandCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    BrandCategoryId = table.Column<int>(type: "int", nullable: true),
-                    ProductCategoryId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Categories_BrandCategories_BrandCategoryId",
-                        column: x => x.BrandCategoryId,
-                        principalTable: "BrandCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Categories_ProductCategories_ProductCategoryId",
-                        column: x => x.ProductCategoryId,
-                        principalTable: "ProductCategories",
+                        name: "FK_Brands_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -304,11 +274,18 @@ namespace bestoTech.Server.Migrations
                     AvgRating = table.Column<float>(type: "real", nullable: false),
                     TotalReviews = table.Column<int>(type: "int", nullable: true),
                     BrandId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    ALink = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_ALinks_ALink",
+                        column: x => x.ALink,
+                        principalTable: "ALinks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Products_Brands_BrandId",
                         column: x => x.BrandId,
@@ -319,34 +296,6 @@ namespace bestoTech.Server.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ALinks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    AStoreId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ALinks", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ALinks_AStores_AStoreId",
-                        column: x => x.AStoreId,
-                        principalTable: "AStores",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ALinks_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -366,8 +315,7 @@ namespace bestoTech.Server.Migrations
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: true)
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -378,12 +326,6 @@ namespace bestoTech.Server.Migrations
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Reviews_User1_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User1",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -401,18 +343,18 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "c4f4e5f4-3fd3-4106-8846-6a8f81954032", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "8833877f-9795-4995-bea6-a4b4ea9d40bc", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "f81a985a-df25-4f55-ac67-bb25dcfb12b2", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "b6d50a4d-1b41-4873-a76d-91a48e132119", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "ce464f50-2f17-42da-b093-2fce2ec62db4", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEItgoLsulmAh1dZfH5D2L9C/opXfa5zQCUoTtXibLJZfa7b4Ut5zFDkRojCCSuXbzQ==", null, false, "52771ff4-c7f0-4599-beb2-78ceb1a0932e", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "f3e1d42e-74f8-4cf5-a050-2e4b4a605464", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEGX+qzn3vUiy6M44/U5NcXXzLB0pOy5cA8++mBcY/OIb61Ky6EMLuXo2qET2Rk+ITQ==", null, false, "f6e1b431-2486-4cf0-ab0f-5fb676892c12", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Brands",
-                columns: new[] { "Id", "AvgRating", "BrandCategoryId", "Description", "Name", "NumOfProduct" },
+                columns: new[] { "Id", "AvgRating", "CategoryId", "Description", "Name", "NumOfProduct" },
                 values: new object[,]
                 {
                     { 1, 0f, null, "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.", "Apple", 0 },
@@ -422,12 +364,12 @@ namespace bestoTech.Server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "BrandCategoryId", "Name", "ProductCategoryId" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, null, "Phones", null },
-                    { 2, null, "Audio and Visual", null },
-                    { 3, null, "Cameras", null }
+                    { 1, "Phones" },
+                    { 2, "Audio and Visual" },
+                    { 3, "Cameras" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,11 +381,6 @@ namespace bestoTech.Server.Migrations
                 name: "IX_ALinks_AStoreId",
                 table: "ALinks",
                 column: "AStoreId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ALinks_ProductId",
-                table: "ALinks",
-                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -485,19 +422,9 @@ namespace bestoTech.Server.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Brands_BrandCategoryId",
+                name: "IX_Brands_CategoryId",
                 table: "Brands",
-                column: "BrandCategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categories_BrandCategoryId",
-                table: "Categories",
-                column: "BrandCategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categories_ProductCategoryId",
-                table: "Categories",
-                column: "ProductCategoryId");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DeviceCodes_DeviceCode",
@@ -526,6 +453,11 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "SubjectId", "SessionId", "Type" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_ALink",
+                table: "Products",
+                column: "ALink");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_BrandId",
                 table: "Products",
                 column: "BrandId");
@@ -539,18 +471,10 @@ namespace bestoTech.Server.Migrations
                 name: "IX_Reviews_ProductId",
                 table: "Reviews",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reviews_UserId",
-                table: "Reviews",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "ALinks");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -576,9 +500,6 @@ namespace bestoTech.Server.Migrations
                 name: "Reviews");
 
             migrationBuilder.DropTable(
-                name: "AStores");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -588,19 +509,16 @@ namespace bestoTech.Server.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "User1");
+                name: "ALinks");
 
             migrationBuilder.DropTable(
                 name: "Brands");
 
             migrationBuilder.DropTable(
+                name: "AStores");
+
+            migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "BrandCategories");
-
-            migrationBuilder.DropTable(
-                name: "ProductCategories");
         }
     }
 }
