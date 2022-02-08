@@ -6,16 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Shared\NavMenu.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Shared\NavMenu.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Pages\ALink\Create.razor" />
     <None Include="Pages\ALink\Edit.razor" />
     <None Include="Pages\ALink\FormComponent.razor" />
     <None Include="Pages\ALink\Index.razor" />
     <None Include="Pages\ALink\View.razor" />
-    <None Include="Pages\BrandCategories\Create.razor" />
-    <None Include="Pages\BrandCategories\Edit.razor" />
-    <None Include="Pages\BrandCategories\FormComponent.razor" />
-    <None Include="Pages\BrandCategories\Index.razor" />
-    <None Include="Pages\BrandCategories\View.razor" />
   </ItemGroup>
 
   <ItemGroup>

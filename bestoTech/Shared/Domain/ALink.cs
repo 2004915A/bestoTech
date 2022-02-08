@@ -17,11 +17,11 @@ namespace bestoTech.Shared.Domain
         public string Link { get; set; }
         [DataType(DataType.Currency)]
         public int? Price { get; set; }
-        [Required(ErrorMessage = "Please select a Product")]
-        [ForeignKey("ProductId")]
-        public int? ProductId { get; set; }
-        public virtual Product Product { get; set; }
-        [ForeignKey("AStoreId")]
+        //[Required(ErrorMessage = "Please select a Product")]
+        //[ForeignKey("ProductId")]
+        //public int? ProductId { get; set; }
+        //public virtual Product Product { get; set; }
+        [ForeignKey("AStore")]
         public int? AStoreId { get; set; }
         public virtual AStore AStore { get; set; }
 

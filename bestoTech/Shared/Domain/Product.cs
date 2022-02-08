@@ -22,13 +22,12 @@ namespace bestoTech.Shared.Domain
         [ForeignKey("Brand")]
         public int? BrandId { get; set; }
         public virtual Brand Brand { get; set; }
-        //[ForeignKey("ProductCategoryId")]
-        //public int? ProductCategoryId { get; set; }
-        //public virtual ProductCategory ProductCategory { get; set; }
         [Required]
         [ForeignKey("Category")]
         public int? CategoryId { get; set; }
         public virtual Category Category {get; set; }
+        [ForeignKey("ALink")]
+        public virtual ALink Alink { get; set; }
         public virtual List<Review> Reviews { get; set; }
     }
 }

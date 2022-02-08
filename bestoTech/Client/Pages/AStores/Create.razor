@@ -1,16 +1,16 @@
-﻿@page "/alinks/create"
+﻿@page "/astores/create"
 @inject HttpClient _client
 @inject NavigationManager _navManager
 
-<h3 class="card-title">Create a ALink</h3>
+<h3 class="card-title">Create a AStore</h3>
 <br/>
 <br />
 
-<FormComponent ButtonText="Add ALink" OnValidSubmit="CreateALink" alink="alink" />
+<FormComponent ButtonText="Add AStore" OnValidSubmit="CreateAStore" astore="astore" />
 
 
 @code {
-    ALink alink = new ALink();
+    AStore astore = new AStore();
 
     private IList<Brand> Brands;
 
@@ -21,10 +21,10 @@
 
     }
 
-    private async Task CreateALink()
+    private async Task CreateAStore()
     {
-        await _client.PostAsJsonAsync(Endpoints.ALinksEndpoint, alink);
-        _navManager.NavigateTo("/alinks/");
+        await _client.PostAsJsonAsync(Endpoints.AStoresEndpoint, astore);
+        _navManager.NavigateTo("/astores/");
     }
 }
 
