@@ -152,14 +152,30 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            ConcurrencyStamp = "d0e2f6cc-8392-4924-9e66-cab483aff6dd",
+=======
+                            ConcurrencyStamp = "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8",
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+=======
                             ConcurrencyStamp = "6371cdba-14a5-47d8-b3c8-0836b2d985f0",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            ConcurrencyStamp = "4b2f218c-f326-4614-b55e-bd3510e20f4a",
+=======
+                            ConcurrencyStamp = "8203a403-3f98-48e9-8b26-d4dececf9504",
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+=======
                             ConcurrencyStamp = "39ec1d62-cee7-458a-a956-28a11deab85d",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -355,7 +371,15 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            ConcurrencyStamp = "eab6ccc3-51ba-4d47-a5db-f87fcedd8101",
+=======
+                            ConcurrencyStamp = "f26a7786-36c1-43f6-9734-9defc0a878f7",
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+=======
                             ConcurrencyStamp = "14045216-9d78-4a4b-8a82-f0c80885bdbb",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -363,9 +387,21 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            PasswordHash = "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "5e2ffa01-ab92-4b2a-8abc-88c1b74aa154",
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAEG4432O/P7NhQdVJt3V17gNw09qUgvdzOZ7K426PlLjSKhpeNLwWL+15Szg1U1ZRMA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "1c9f381f-64e4-432a-a0e0-9342be7bcc0b",
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+=======
                             PasswordHash = "AQAAAAEAACcQAAAAENM43jGww0akBpGGsmwWPDxCm58xr+uqIRVrprLAVjERKPxkmrFDdYmydCFWHiteGw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "b4c5ebf1-ff3a-465e-8958-85064344b757",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -621,6 +657,50 @@ namespace bestoTech.Server.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+<<<<<<< HEAD
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 15, DateTimeKind.Local).AddTicks(3212),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2067),
+                            Description = " ",
+                            Rating = 1,
+                            RecieptId = 1,
+                            Status = "Yes",
+                            Title = "Title1",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(2998),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3002),
+                            Description = " ",
+                            Rating = 2,
+                            RecieptId = 2,
+                            Status = "Yes",
+                            Title = "Title2",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3005),
+                            DateUpdated = new DateTime(2022, 2, 5, 19, 17, 43, 16, DateTimeKind.Local).AddTicks(3006),
+                            Description = " ",
+                            Rating = 3,
+                            RecieptId = 3,
+                            Status = "Yes",
+                            Title = "Title3",
+                            UpdatedBy = "System"
+                        });
+=======
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>
