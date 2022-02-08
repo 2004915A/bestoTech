@@ -10,11 +10,15 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
     [Migration("20220205111743_newdb")]
 =======
     [Migration("20220206210413_newdb")]
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+    [Migration("20220208005714_newdb")]
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,22 +162,30 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "d0e2f6cc-8392-4924-9e66-cab483aff6dd",
 =======
                             ConcurrencyStamp = "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8",
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+                            ConcurrencyStamp = "6371cdba-14a5-47d8-b3c8-0836b2d985f0",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "4b2f218c-f326-4614-b55e-bd3510e20f4a",
 =======
                             ConcurrencyStamp = "8203a403-3f98-48e9-8b26-d4dececf9504",
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+                            ConcurrencyStamp = "39ec1d62-cee7-458a-a956-28a11deab85d",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -369,11 +381,15 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "eab6ccc3-51ba-4d47-a5db-f87fcedd8101",
 =======
                             ConcurrencyStamp = "f26a7786-36c1-43f6-9734-9defc0a878f7",
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+                            ConcurrencyStamp = "14045216-9d78-4a4b-8a82-f0c80885bdbb",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -381,6 +397,7 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             PasswordHash = "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==",
                             PhoneNumberConfirmed = false,
@@ -390,6 +407,11 @@ namespace bestoTech.Server.Migrations
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "1c9f381f-64e4-432a-a0e0-9342be7bcc0b",
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAENM43jGww0akBpGGsmwWPDxCm58xr+uqIRVrprLAVjERKPxkmrFDdYmydCFWHiteGw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b4c5ebf1-ff3a-465e-8958-85064344b757",
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -406,12 +428,14 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Link")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Price")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -431,7 +455,9 @@ namespace bestoTech.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -465,21 +491,25 @@ namespace bestoTech.Server.Migrations
                     b.Property<float?>("AvgRating")
                         .HasColumnType("real");
 
-                    b.Property<int?>("BrandCategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("NumOfProduct")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Brands");
 
@@ -510,18 +540,6 @@ namespace bestoTech.Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("bestoTech.Shared.Domain.BrandCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BrandCategories");
-                });
-
             modelBuilder.Entity("bestoTech.Shared.Domain.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -529,20 +547,12 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductCategoryId")
-                        .HasColumnType("int");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandCategoryId");
-
-                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Categories");
 
@@ -575,16 +585,22 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("real");
 
                     b.Property<int?>("BrandId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductCategoryId")
-                        .HasColumnType("int");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("TotalReviews")
                         .HasColumnType("int");
@@ -593,7 +609,7 @@ namespace bestoTech.Server.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("ProductCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
 <<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
@@ -628,18 +644,6 @@ namespace bestoTech.Server.Migrations
 >>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
                 });
 
-            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductCategories");
-                });
-
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -657,12 +661,16 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("Rating")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("RecieptId")
@@ -672,7 +680,9 @@ namespace bestoTech.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -807,7 +817,9 @@ namespace bestoTech.Server.Migrations
 
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AStore");
 
@@ -816,44 +828,39 @@ namespace bestoTech.Server.Migrations
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Brand", b =>
                 {
-                    b.HasOne("bestoTech.Shared.Domain.BrandCategory", "BrandCategory")
+                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("BrandCategoryId");
+                        .HasForeignKey("CategoryId");
 
-                    b.Navigation("BrandCategory");
-                });
-
-            modelBuilder.Entity("bestoTech.Shared.Domain.Category", b =>
-                {
-                    b.HasOne("bestoTech.Shared.Domain.BrandCategory", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("BrandCategoryId");
-
-                    b.HasOne("bestoTech.Shared.Domain.ProductCategory", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("ProductCategoryId");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Product", b =>
                 {
                     b.HasOne("bestoTech.Shared.Domain.Brand", "Brand")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("bestoTech.Shared.Domain.ProductCategory", "ProductCategory")
+                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("ProductCategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Brand");
 
-                    b.Navigation("ProductCategory");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>
                 {
                     b.HasOne("bestoTech.Shared.Domain.Product", "Product")
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("bestoTech.Shared.Domain.User", null)
                         .WithMany("Reviews")
@@ -867,19 +874,9 @@ namespace bestoTech.Server.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("bestoTech.Shared.Domain.BrandCategory", b =>
-                {
-                    b.Navigation("Categories");
-                });
-
             modelBuilder.Entity("bestoTech.Shared.Domain.Product", b =>
                 {
                     b.Navigation("Reviews");
-                });
-
-            modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
-                {
-                    b.Navigation("Categories");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>

@@ -1,0 +1,16 @@
+﻿@page "/astores/view/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<FormComponent astore="astore" Disabled="true" />
+
+@code {
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public int id { get; set; }
+    AStore astore = new AStore();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        astore = await _client.GetFromJsonAsync<AStore>($"{Endpoints.AStoresEndpoint}/{id}");
+    }
+}

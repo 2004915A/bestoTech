@@ -1,69 +1,74 @@
 ﻿@inject HttpClient _client
-
+@inject NavigationManager _navManager
 <EditForm Model="@review" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div class="form-group">
-        <label>Title: </label>
-        <div>
-            <InputText @bind-Value="review.Title" class="form-control" />
-            <ValidationMessage For="@( () => review.Title)" />
+    <fieldset disabled="@Disabled">
+        <div class="form-group">
+            <label>Title: </label>
+            <div>
+                <InputText @bind-Value="review.Title" class="form-control" />
+                <ValidationMessage For="@( () => review.Title)" />
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="form-group">
-        <label>Body: </label>
-        <div>
-            <InputText @bind-Value="review.Description" class="form-control" />
-            <ValidationMessage For="@( () => review.Description)" />
+        <div class="form-group">
+            <label>Body: </label>
+            <div>
+                <InputText @bind-Value="review.Description" class="form-control" />
+                <ValidationMessage For="@( () => review.Description)" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label>Product: </label>
-        <div>
-            <InputSelect @bind-Value="review.ProductId" class="form-control">
+        <div class="form-group">
+            <label>Product: </label>
+            <div>
+                <InputSelect @bind-Value="review.ProductId" class="form-control">
 
-                @if (Products != null)
-                {
-                    <option value="">--- Select a Product ---</option>
-                    foreach (var product in Products)
+                    @if (Products != null)
                     {
-                        <option value="@product.Id">@product.Name</option>
+                        <option value="">--- Select a Product ---</option>
+                        foreach (var product in Products)
+                        {
+                            <option value="@product.Id">@product.Name</option>
+                        }
                     }
-                }
 
-            </InputSelect>
-            <ValidationMessage For="@( () => review.ProductId)" />
+                </InputSelect>
+                <ValidationMessage For="@( () => review.ProductId)" />
+            </div>
+
         </div>
-
-    </div>
-    <div class="form-group">
-        <label>Rating: </label>
-        <div>
-            <InputSelect @bind-Value="review.Rating" class="form-control">
-                <option value="">--- Choose 1 out of 5 ---</option>
-                @if (Products != null)
-                {
-                    foreach (int rating in ratings)
+        <div class="form-group">
+            <label>Rating: </label>
+            <div>
+                <InputSelect @bind-Value="review.Rating" class="form-control">
+                    <option value="">--- Rating out of 5 ---</option>
+                    @if (Products != null)
                     {
-                        <option value="@rating">@rating</option>
+                        foreach (int rating in ratings)
+                        {
+                            <option value="@rating">@rating</option>
+                        }
                     }
-                }
 
-            </InputSelect>
-            <ValidationMessage For="@( () => review.Rating)" />
+                </InputSelect>
+                <ValidationMessage For="@( () => review.Rating)" />
+            </div>
+
         </div>
-
-    </div>
-
-    <button type="submit" class="btn btn-success btn-block">
-        Submit Review
-    </button>
+    </fieldset>
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
+    <BackToList Target="reviews" />
 </EditForm>
 
 @code {
-    private int[] ratings = { 1, 2, 3, 4, 5 };
+    private int[] ratings = { 0, 1, 2, 3, 4, 5 };
 
     private IList<Product> Products;
 
@@ -72,7 +77,7 @@
     {
         Products = await _client.GetFromJsonAsync<List<Product>>($"{Endpoints.ProductsEndpoint}");
     }
-
+    [Parameter] public bool Disabled { get; set; } = false;
     [Parameter] public Review review { get; set; }
     [Parameter] public string ButtonText { get; set; } = "Save";
     [Parameter] public EventCallback OnValidSubmit { get; set; }

@@ -1,0 +1,16 @@
+﻿@page "/brands/view/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<FormComponent brand="brand" Disabled="true" />
+
+@code {
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public int id { get; set; }
+    Brand brand = new Brand();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        brand = await _client.GetFromJsonAsync<Brand>($"{Endpoints.BrandsEndpoint}/{id}");
+    }
+}

@@ -31,7 +31,7 @@ namespace bestoTech.Server.Controllers
         public async Task<IActionResult> GetProducts()
         {
             //return await _context.Products.ToListAsync();
-            var products = await _unitOfWork.Products.GetAll(includes: q => q.Include(x => x.Brand).Include(x => x.ProductCategory));
+            var products = await _unitOfWork.Products.GetAll(includes: q => q.Include(x => x.Brand).Include(x => x.Category));
             return Ok(products);
         }
 

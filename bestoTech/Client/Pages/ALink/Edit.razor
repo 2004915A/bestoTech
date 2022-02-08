@@ -1,0 +1,22 @@
+﻿@page "/alinks/edit/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+<h3>Edit ALink</h3>
+
+<FormComponent ButtonText="Update" OnValidSubmit="EditALink" alink="alink" />
+
+@code {
+    [Parameter] public int id { get; set; }
+    ALink alink = new ALink();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        alink = await _client.GetFromJsonAsync<ALink>($"{Endpoints.ALinksEndpoint}/{id}");
+    }
+
+    async Task EditALink()
+    {
+        await _client.PutAsJsonAsync($"{Endpoints.ALinksEndpoint}/{id}",alink);
+        _navManager.NavigateTo("/alinks/");
+    }
+}

@@ -6,11 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Pages\ALink\Create.razor" />
+    <None Include="Pages\ALink\Edit.razor" />
+    <None Include="Pages\ALink\FormComponent.razor" />
+    <None Include="Pages\ALink\Index.razor" />
+    <None Include="Pages\ALink\View.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.12" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="5.0.12" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    <PackageReference Include="Toolbelt.Blazor.HttpClientInterceptor" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
