@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220208052351_newdb")]
+    [Migration("20220208125211_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "f81a985a-df25-4f55-ac67-bb25dcfb12b2",
+                            ConcurrencyStamp = "284e6173-9383-4d3d-8fa9-e0141dca0b31",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "b6d50a4d-1b41-4873-a76d-91a48e132119",
+                            ConcurrencyStamp = "d6db596c-ee65-4295-983c-9097bbd263db",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f3e1d42e-74f8-4cf5-a050-2e4b4a605464",
+                            ConcurrencyStamp = "09ada185-9b88-4681-87f7-5c9d3aa71687",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGX+qzn3vUiy6M44/U5NcXXzLB0pOy5cA8++mBcY/OIb61Ky6EMLuXo2qET2Rk+ITQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPEM9NZXPaPCbV1GwP/BGcnAd1f9utd4F+kFnTmoqKWpV7+teJJbTssQmBibP6MztA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f6e1b431-2486-4cf0-ab0f-5fb676892c12",
+                            SecurityStamp = "bee900e7-7eb2-4bd7-91a9-cf9af0753612",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

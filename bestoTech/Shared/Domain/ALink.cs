@@ -21,7 +21,7 @@ namespace bestoTech.Shared.Domain
         //[ForeignKey("ProductId")]
         //public int? ProductId { get; set; }
         //public virtual Product Product { get; set; }
-        [ForeignKey("AStoreId")]
+        [ForeignKey("AStore")]
         public int? AStoreId { get; set; }
         public virtual AStore AStore { get; set; }
 

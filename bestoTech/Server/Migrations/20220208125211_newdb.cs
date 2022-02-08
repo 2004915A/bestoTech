@@ -343,14 +343,14 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "f81a985a-df25-4f55-ac67-bb25dcfb12b2", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "b6d50a4d-1b41-4873-a76d-91a48e132119", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "284e6173-9383-4d3d-8fa9-e0141dca0b31", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "d6db596c-ee65-4295-983c-9097bbd263db", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "f3e1d42e-74f8-4cf5-a050-2e4b4a605464", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEGX+qzn3vUiy6M44/U5NcXXzLB0pOy5cA8++mBcY/OIb61Ky6EMLuXo2qET2Rk+ITQ==", null, false, "f6e1b431-2486-4cf0-ab0f-5fb676892c12", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "09ada185-9b88-4681-87f7-5c9d3aa71687", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEPEM9NZXPaPCbV1GwP/BGcnAd1f9utd4F+kFnTmoqKWpV7+teJJbTssQmBibP6MztA==", null, false, "bee900e7-7eb2-4bd7-91a9-cf9af0753612", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Brands",

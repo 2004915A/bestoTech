@@ -18,23 +18,6 @@
                 <ValidationMessage For="@( () => brand.Description)" />
             </div>
         </div>
-
-        @*<div class="form-group">
-            <label>Categories: </label>
-            <div>
-                <InputSelect @bind-Value="brand.BrandCategoryId" class="form-control">
-                    @if (Brands != null)
-                    {
-                        <option value="">--- Select a Brand ---</option>
-                        foreach (var brand in Brands)
-                        {
-                            <option value="@brand.Id">@brand.Name</option>
-                        }
-                    }
-                </InputSelect>
-                <ValidationMessage For="@( () => brand.BrandCategoryId)" />
-            </div>
-        </div>*@
     </fieldset>
     @if (!Disabled)
     {
