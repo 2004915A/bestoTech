@@ -22,6 +22,8 @@ namespace bestoTech.Server.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<BrandCategory> BrandCategories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AStore> AStores { get; set; }
         public DbSet<ALink> ALinks { get; set; }

@@ -3,15 +3,29 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bestoTech.Server.Data;
 
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
+    [Migration("20220205111743_newdb")]
+=======
+    [Migration("20220206210413_newdb")]
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+=======
+    [Migration("20220208005714_newdb")]
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+=======
+    [Migration("20220208003541_newdb")]
+>>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities):bestoTech/Server/Migrations/20220208003541_newdb.Designer.cs
+    partial class newdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,38 +166,38 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "d0e2f6cc-8392-4924-9e66-cab483aff6dd",
 =======
                             ConcurrencyStamp = "6ab5eebe-69ef-4cea-a7fd-fa5b983410b8",
->>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "6371cdba-14a5-47d8-b3c8-0836b2d985f0",
->>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "c4f4e5f4-3fd3-4106-8846-6a8f81954032",
->>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities)
+>>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities):bestoTech/Server/Migrations/20220208003541_newdb.Designer.cs
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "4b2f218c-f326-4614-b55e-bd3510e20f4a",
 =======
                             ConcurrencyStamp = "8203a403-3f98-48e9-8b26-d4dececf9504",
->>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "39ec1d62-cee7-458a-a956-28a11deab85d",
->>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "8833877f-9795-4995-bea6-a4b4ea9d40bc",
->>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities)
+>>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities):bestoTech/Server/Migrations/20220208003541_newdb.Designer.cs
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -379,19 +393,19 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             ConcurrencyStamp = "eab6ccc3-51ba-4d47-a5db-f87fcedd8101",
 =======
                             ConcurrencyStamp = "f26a7786-36c1-43f6-9734-9defc0a878f7",
->>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "14045216-9d78-4a4b-8a82-f0c80885bdbb",
->>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
 =======
                             ConcurrencyStamp = "ce464f50-2f17-42da-b093-2fce2ec62db4",
->>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities)
+>>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities):bestoTech/Server/Migrations/20220208003541_newdb.Designer.cs
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -399,9 +413,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
                             PasswordHash = "AQAAAAEAACcQAAAAEOmEurmwK8Z0g85dfXG8k1UlKYh5qwVHzrjteTioOv6QL9YaDhHWfzVwQjx84OIeDg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5e2ffa01-ab92-4b2a-8abc-88c1b74aa154",
@@ -409,17 +423,17 @@ namespace bestoTech.Server.Migrations
                             PasswordHash = "AQAAAAEAACcQAAAAEG4432O/P7NhQdVJt3V17gNw09qUgvdzOZ7K426PlLjSKhpeNLwWL+15Szg1U1ZRMA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "1c9f381f-64e4-432a-a0e0-9342be7bcc0b",
->>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
 =======
                             PasswordHash = "AQAAAAEAACcQAAAAENM43jGww0akBpGGsmwWPDxCm58xr+uqIRVrprLAVjERKPxkmrFDdYmydCFWHiteGw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "b4c5ebf1-ff3a-465e-8958-85064344b757",
->>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a
+>>>>>>> e1bf2aaad8b2c0d0a596e3b4f2a9f5c8a9be906a:bestoTech/Server/Migrations/20220208005714_newdb.Designer.cs
 =======
                             PasswordHash = "AQAAAAEAACcQAAAAEItgoLsulmAh1dZfH5D2L9C/opXfa5zQCUoTtXibLJZfa7b4Ut5zFDkRojCCSuXbzQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "52771ff4-c7f0-4599-beb2-78ceb1a0932e",
->>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities)
+>>>>>>> parent of e1bf2aa (Removal of ProductCategories and BrandCategories entities):bestoTech/Server/Migrations/20220208003541_newdb.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -642,6 +656,36 @@ namespace bestoTech.Server.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AvgRating = 0f,
+                            BrandId = 1,
+                            Description = "Apple iPhone 13",
+                            Name = "iPhone 13",
+                            TotalReviews = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AvgRating = 0f,
+                            Description = "Apple iPhone 12",
+                            Name = "iPhone 12",
+                            TotalReviews = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AvgRating = 0f,
+                            Description = "Apple iPhone 11",
+                            Name = "iPhone 11",
+                            TotalReviews = 0
+                        });
+=======
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.ProductCategory", b =>
@@ -709,7 +753,7 @@ namespace bestoTech.Server.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
-<<<<<<< HEAD
+<<<<<<< HEAD:bestoTech/Server/Migrations/20220205111743_newdb.Designer.cs
 
                     b.HasData(
                         new
@@ -752,7 +796,7 @@ namespace bestoTech.Server.Migrations
                             UpdatedBy = "System"
                         });
 =======
->>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637
+>>>>>>> 96df1d66d4f3c515b9f8f763d6bcecd346ed6637:bestoTech/Server/Migrations/20220206210413_newdb.Designer.cs
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.User", b =>

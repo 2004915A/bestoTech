@@ -18,9 +18,9 @@ namespace bestoTech.Shared.Domain
         public float? AvgRating { get; set; }
         public int? NumOfProduct { get; set; }
         public virtual List<Product> Products { get; set; }
-        [ForeignKey("Category")]
-        public int? CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        [ForeignKey("BrandCategoryId")]
+        public int? BrandCategoryId { get; set; }
+        public virtual BrandCategory BrandCategory { get; set; }
 
     }
 }
