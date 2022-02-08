@@ -4,8 +4,14 @@
 @attribute [Authorize]
 
 <h3 class="card-title">Products</h3>
-<br/>
-<br/>
+
+<a href="/products/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create a Product
+</a>
+
+<br />
+<br />
 
 @if (Products == null)
 {
@@ -18,6 +24,8 @@ else
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Brand</th>
+                <th>Category</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,6 +34,8 @@ else
             {
                 <tr>
                     <td>@product.Name</td>
+                    <td>@product.Brand.Name</td>
+                    <td>@product.ProductCategoryId</td>
                     <td>
                         <a href="/products/view/@product.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

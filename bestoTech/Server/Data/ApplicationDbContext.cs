@@ -32,12 +32,12 @@ namespace bestoTech.Server.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new ALinkSeedConfig());
+            //builder.ApplyConfiguration(new ALinkSeedConfig());
             builder.ApplyConfiguration(new AStoreSeedConfig());
             builder.ApplyConfiguration(new BrandSeedConfig());
             builder.ApplyConfiguration(new CategorySeedConfig());
-            builder.ApplyConfiguration(new ProductSeedConfig());
-            builder.ApplyConfiguration(new ReviewSeedConfig());
+            //builder.ApplyConfiguration(new ProductSeedConfig());
+            //builder.ApplyConfiguration(new ReviewSeedConfig());
             builder.ApplyConfiguration(new RoleSeedConfig());
             builder.ApplyConfiguration(new UserRoleSeedConfig());
             builder.ApplyConfiguration(new UserSeedConfig());

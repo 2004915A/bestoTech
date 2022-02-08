@@ -31,8 +31,8 @@ namespace bestoTech.Server.Controllers
         public async Task<IActionResult> GetReviews()
         {
             //return await _context.Reviews.ToListAsync();
-            var reviews = await _unitOfWork.Reviews.GetAll();
-            return Ok(reviews);
+            var Reviews = await _unitOfWork.Reviews.GetAll(includes: q => q.Include(x =>x.Product));
+            return Ok(Reviews);
         }
 
         // GET: api/Reviews/5
@@ -41,29 +41,29 @@ namespace bestoTech.Server.Controllers
         public async Task<IActionResult> GetReview(int id)
         {
             //var review = await _context.Reviews.FindAsync(id);
-            var review = await _unitOfWork.Reviews.Get(q => q.Id == id);
+            var Review = await _unitOfWork.Reviews.Get(q => q.Id == id);
 
-            if (review == null)
+            if (Review == null)
             {
                 return NotFound();
             }
 
             //return review;
-            return Ok(review);
+            return Ok(Review);
         }
 
         // PUT: api/Reviews/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReview(int id, Review review)
+        public async Task<IActionResult> PutReview(int id, Review Review)
         {
-            if (id != review.Id)
+            if (id != Review.Id)
             {
                 return BadRequest();
             }
 
             //_context.Entry(review).State = EntityState.Modified;
-            _unitOfWork.Reviews.Update(review);
+            _unitOfWork.Reviews.Update(Review);
 
             try
             {
@@ -89,14 +89,14 @@ namespace bestoTech.Server.Controllers
         // POST: api/Reviews
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Review>> PostReview(Review review)
+        public async Task<ActionResult<Review>> PostReview(Review Review)
         {
             // _context.Reviews.Add(review);
             //await _context.SaveChangesAsync();
-            await _unitOfWork.Reviews.Insert(review);
+            await _unitOfWork.Reviews.Insert(Review);
             await _unitOfWork.Save(HttpContext);
 
-            return CreatedAtAction("GetReview", new { id = review.Id }, review);
+            return CreatedAtAction("GetReview", new { id = Review.Id }, Review);
         }
 
         // DELETE: api/Reviews/5
@@ -104,8 +104,8 @@ namespace bestoTech.Server.Controllers
         public async Task<IActionResult> DeleteReview(int id)
         {
             //var review = await _context.Reviews.FindAsync(id);
-            var review = await _unitOfWork.Reviews.Get(q => q.Id == id);
-            if (review == null)
+            var Review = await _unitOfWork.Reviews.Get(q => q.Id == id);
+            if (Review == null)
             {
                 return NotFound();
             }
@@ -122,8 +122,8 @@ namespace bestoTech.Server.Controllers
         private async Task<bool> ReviewExists(int id)
         {
             //return _context.Reviews.Any(e => e.Id == id);
-            var review = await _unitOfWork.Reviews.Get(q => q.Id == id);
-            return review != null;
+            var Review = await _unitOfWork.Reviews.Get(q => q.Id == id);
+            return Review != null;
         }
     }
 }

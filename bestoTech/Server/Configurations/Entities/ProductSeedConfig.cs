@@ -21,7 +21,7 @@ namespace bestoTech.Server.Configurations.Entities
                      Description = "Apple iPhone 13",
                      AvgRating = 0,
                      TotalReviews = 0,
-                     BrandId = 1
+                     BrandId = 1,
                  },
                  new Product
                  {

@@ -4,6 +4,12 @@
 @attribute [Authorize]
 
 <h3 class="card-title">Categories</h3>
+
+<a href="/categories/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Add a Category
+</a>
+
 <br/>
 <br/>
 
@@ -27,10 +33,10 @@ else
                 <tr>
                     <td>@category.Name</td>
                     <td>
-                        <a href="/categorys/view/@category.Id" class="btn btn-primary">
+                        <a href="/categories/view/@category.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/categorys/edit/@category.Id" class="btn btn-warning">
+                        <a href="/categories/edit/@category.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
                         <button class="btn btn-danger" @onclick="@(()=>Delete(category.Id))">
