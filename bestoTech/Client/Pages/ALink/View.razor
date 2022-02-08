@@ -1,0 +1,16 @@
+﻿@page "/alinks/view/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<FormComponent alink="alink" Disabled="true" />
+
+@code {
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public int id { get; set; }
+    ALink alink = new ALink();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        alink = await _client.GetFromJsonAsync<ALink>($"{Endpoints.ALinksEndpoint}/{id}");
+    }
+}

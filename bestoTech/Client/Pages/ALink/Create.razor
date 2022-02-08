@@ -1,0 +1,30 @@
+﻿@page "/astores/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3 class="card-title">Create a AStore</h3>
+<br/>
+<br />
+
+<FormComponent ButtonText="Add AStore" OnValidSubmit="CreateAStore" astore="astore" />
+
+
+@code {
+    AStore astore = new AStore();
+
+    private IList<Brand> Brands;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        Brands = await _client.GetFromJsonAsync<List<Brand>>($"{Endpoints.BrandsEndpoint}");
+
+    }
+
+    private async Task CreateAStore()
+    {
+        await _client.PostAsJsonAsync(Endpoints.AStoresEndpoint, astore);
+        _navManager.NavigateTo("/astores/");
+    }
+}
+

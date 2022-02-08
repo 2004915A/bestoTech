@@ -10,7 +10,7 @@ using bestoTech.Server.Data;
 namespace bestoTech.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220207202436_newdb")]
+    [Migration("20220208003541_newdb")]
     partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,14 +154,14 @@ namespace bestoTech.Server.Migrations
                         new
                         {
                             Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "afe34209-78e9-4e1c-9761-f619f0b2eb2d",
+                            ConcurrencyStamp = "c4f4e5f4-3fd3-4106-8846-6a8f81954032",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "1a91b971-a301-47d6-9333-33fd2ee530a5",
+                            ConcurrencyStamp = "8833877f-9795-4995-bea6-a4b4ea9d40bc",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -357,7 +357,7 @@ namespace bestoTech.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eeca103c-e273-40bc-af23-c58a131094c3",
+                            ConcurrencyStamp = "ce464f50-2f17-42da-b093-2fce2ec62db4",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -365,9 +365,9 @@ namespace bestoTech.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOso4LpRALFEGgmut25lUlPtyB++KO6iYBRLYLOBV3bqhCPLr/iez2zEcq4Zz1BUMw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEItgoLsulmAh1dZfH5D2L9C/opXfa5zQCUoTtXibLJZfa7b4Ut5zFDkRojCCSuXbzQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9769161f-795f-4744-9330-a2ebf4ef626c",
+                            SecurityStamp = "52771ff4-c7f0-4599-beb2-78ceb1a0932e",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -566,6 +566,10 @@ namespace bestoTech.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -576,9 +580,6 @@ namespace bestoTech.Server.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("ProductCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("TotalReviews")
                         .HasColumnType("int");
 
@@ -586,7 +587,7 @@ namespace bestoTech.Server.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("ProductCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -769,13 +770,15 @@ namespace bestoTech.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("bestoTech.Shared.Domain.ProductCategory", "ProductCategory")
+                    b.HasOne("bestoTech.Shared.Domain.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("ProductCategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Brand");
 
-                    b.Navigation("ProductCategory");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("bestoTech.Shared.Domain.Review", b =>

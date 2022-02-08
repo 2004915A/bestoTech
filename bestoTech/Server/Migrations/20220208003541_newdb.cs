@@ -304,7 +304,7 @@ namespace bestoTech.Server.Migrations
                     AvgRating = table.Column<float>(type: "real", nullable: false),
                     TotalReviews = table.Column<int>(type: "int", nullable: true),
                     BrandId = table.Column<int>(type: "int", nullable: false),
-                    ProductCategoryId = table.Column<int>(type: "int", nullable: true)
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -316,11 +316,11 @@ namespace bestoTech.Server.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ProductCategories_ProductCategoryId",
-                        column: x => x.ProductCategoryId,
-                        principalTable: "ProductCategories",
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -401,14 +401,14 @@ namespace bestoTech.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "afe34209-78e9-4e1c-9761-f619f0b2eb2d", "Administrator", "ADMINISTRATOR" },
-                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "1a91b971-a301-47d6-9333-33fd2ee530a5", "User", "USER" }
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "c4f4e5f4-3fd3-4106-8846-6a8f81954032", "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", "8833877f-9795-4995-bea6-a4b4ea9d40bc", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "eeca103c-e273-40bc-af23-c58a131094c3", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEOso4LpRALFEGgmut25lUlPtyB++KO6iYBRLYLOBV3bqhCPLr/iez2zEcq4Zz1BUMw==", null, false, "9769161f-795f-4744-9330-a2ebf4ef626c", false, "Admin" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "ce464f50-2f17-42da-b093-2fce2ec62db4", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEItgoLsulmAh1dZfH5D2L9C/opXfa5zQCUoTtXibLJZfa7b4Ut5zFDkRojCCSuXbzQ==", null, false, "52771ff4-c7f0-4599-beb2-78ceb1a0932e", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Brands",
@@ -531,9 +531,9 @@ namespace bestoTech.Server.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductCategoryId",
+                name: "IX_Products_CategoryId",
                 table: "Products",
-                column: "ProductCategoryId");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ProductId",
@@ -567,9 +567,6 @@ namespace bestoTech.Server.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Categories");
-
-            migrationBuilder.DropTable(
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
@@ -597,10 +594,13 @@ namespace bestoTech.Server.Migrations
                 name: "Brands");
 
             migrationBuilder.DropTable(
-                name: "ProductCategories");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "BrandCategories");
+
+            migrationBuilder.DropTable(
+                name: "ProductCategories");
         }
     }
 }

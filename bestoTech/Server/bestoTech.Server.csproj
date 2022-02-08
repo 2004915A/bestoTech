@@ -7,8 +7,8 @@
 
   <ItemGroup>
     <Compile Remove="Configurations\Entities\ALinkSeedConfig.cs" />
-    <Compile Remove="Configurations\Entities\ProductSeedConfig.cs" />
-    <Compile Remove="Configurations\Entities\ReviewSeedConfig.cs" />
+    <Compile Remove="Controllers\BrandCategoriesController.cs" />
+    <Compile Remove="Controllers\ProductCategoriesController.cs" />
   </ItemGroup>
 
   <ItemGroup>

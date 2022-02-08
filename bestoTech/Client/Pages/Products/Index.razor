@@ -3,7 +3,7 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @inject HttpInterceptorService _interceptor
-@implements IDisposable
+@*@implements IDisposable*@
 
 <h3 class="card-title">Products</h3>
 
@@ -37,7 +37,7 @@ else
                 <tr>
                     <td>@product.Name</td>
                     <td>@product.Brand.Name</td>
-                    <td>@product.ProductCategoryId</td>
+                    <td>@product.Category.Name</td>
                     <td>
                         <a href="/products/view/@product.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -74,8 +74,15 @@ else
             await OnInitializedAsync();
         }
     }
-    public void Dispose()
-    {
-        _interceptor.DisposeEvent();
-    }
+
+    //protected async override Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    await js.InvokeVoidAsync("AddDataTable", "#pTable");
+    //}
+
+    //public void Dispose()
+    //{
+    //    _interceptor.DisposeEvent();
+    //    js.InvokeVoidAsync("DataTableDispose", "#pTable");
+    //}
 }

@@ -1,0 +1,77 @@
+﻿@page "/alinks/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
+
+<h3 class="card-title">ALinks</h3>
+
+<a href="/alinks/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Add an Affilate Store
+</a>
+
+<br />
+<br />
+
+@if (ALinks == null)
+{
+    <div class="alert alert-info">Loading ALinks...</div>
+}
+
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alink in ALinks)
+            {
+                <tr>
+                    <td>@alink.Link</td>
+                    <td>
+                        <a href="/alinks/view/@alink.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/alinks/edit/@alink.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(alink.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ALink> ALinks;
+
+    protected async override Task OnInitializedAsync()
+    {
+        _interceptor.MonitorEvent();
+        ALinks = await _client.GetFromJsonAsync<List<ALink>>($"{Endpoints.ALinksEndpoint}");
+    }
+
+    async Task Delete(int alinkId)
+    {
+        var alink = ALinks.First(q => q.Id == alinkId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {alink.Link}?");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoints.ALinksEndpoint}/{alinkId}");
+            await OnInitializedAsync();
+        }
+    }
+    public void Dispose()
+    {
+        _interceptor.DisposeEvent();
+    }
+}
